@@ -40,7 +40,6 @@ const Cursor = () => {
       element.addEventListener('mouseout', handleMouseOut);
     });
 
-
     return () => {
       document.body.removeEventListener('mousemove', handleMouseMove);
       hoverElements.forEach((element) => {

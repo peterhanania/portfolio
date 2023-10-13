@@ -9,6 +9,6 @@ export const SECTION_MAP = {
   About: 'About',
   Experience: 'Experience',
   Projects: 'Projects',
-  Comissions: 'Comissions',
+  Comissions: 'Comissions'
 };
 export const SECTIONS = Object.keys(SECTION_MAP);

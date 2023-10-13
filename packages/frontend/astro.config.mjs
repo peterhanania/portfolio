@@ -1,3 +1,4 @@
+import netlify from '@astrojs/netlify/functions';
 import preact from '@astrojs/preact';
 import compress from 'astro-compress';
 import { defineConfig } from 'astro/config';
@@ -5,6 +6,10 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'server',
+  adapter: netlify({
+    edgeMiddleware: true
+  }),
   integrations: [preact({ compat: true }), compress()],
   vite: {
     ssr: {
