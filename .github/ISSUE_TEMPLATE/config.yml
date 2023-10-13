@@ -1,0 +1,49 @@
+name: Community Support
+description: Please ask and answer questions here
+assignees:
+  - 'peterhanania'
+blank_issues_enabled: false
+contact_links:
+  - name: Community Support
+    url: https://github.com/peterhanania/portfolio/discussions
+    about: Please ask and answer questions here
+title: 'Community Support'
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Community Support
+        Please ask and answer questions here.
+  - type: input
+    id: question
+    attributes:
+      label: Question
+      description: Please provide a detailed description of your question.
+      placeholder: What is your question?
+    validations:
+      required: true
+  - type: input
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Please provide any additional context.
+      placeholder: Any additional context?
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      description: Please add any relevant tags.
+      placeholder: Any relevant tags?
+  - type: input
+    id: assignees
+    attributes:
+      label: Assignees
+      description: Please add any relevant assignees.
+      placeholder: Any relevant assignees?
+  - type: input
+    id: labels
+    attributes:
+      label: Labels
+      description: Please add any relevant labels.
+      placeholder: Any relevant labels?
+

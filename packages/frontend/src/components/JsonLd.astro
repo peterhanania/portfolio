@@ -1,0 +1,45 @@
+---
+import { WithContext, Person, Thing } from 'schema-dts';
+
+export interface Props<T extends Thing> {
+  data: WithContext<T>;
+  space?: string;
+}
+
+const { data, space } = Astro.props;
+
+const ESCAPE_ENTITIES = Object.freeze({
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&apos;'
+});
+const ESCAPE_REGEX = new RegExp(`[${Object.keys(ESCAPE_ENTITIES).join('')}]`, 'g');
+const ESCAPE_REPLACER = (t: string): string => ESCAPE_ENTITIES[t as keyof typeof ESCAPE_ENTITIES];
+
+/**
+ * A replacer for JSON.stringify to strip JSON-LD of illegal HTML entities
+ * per https://www.w3.org/TR/json-ld11/#restrictions-for-contents-of-json-ld-script-elements
+ *
+ * Replace per https://www.w3.org/TR/json-ld11/#restrictions-for-contents-of-json-ld-script-elements
+ * Solution from https://stackoverflow.com/a/5499821/864313
+ */
+const safeJsonLdReplacer = (_: string, value: any): any | undefined => {
+  switch (typeof value) {
+    case 'object':
+      if (value === null) return undefined;
+      return value;
+    case 'number':
+    case 'boolean':
+    case 'bigint':
+      return value;
+    case 'string':
+      return value.replace(ESCAPE_REGEX, ESCAPE_REPLACER);
+    default:
+      return undefined;
+  }
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(data, safeJsonLdReplacer, space)}></script>

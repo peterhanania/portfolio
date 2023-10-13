@@ -1,0 +1,4 @@
+frontend:
+  - packages/frontend/**/*
+backend:
+  - packages/backend/**/*

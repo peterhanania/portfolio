@@ -1,0 +1,51 @@
+[changelog]
+trim = true
+header = """
+"""
+
+body = """
+# Version \
+{% if version %}\
+    {{ version | trim_start_matches(pat="v") }}
+{% else %}\
+    [unreleased]
+{% endif %}\
+{% for group, commits in commits | group_by(attribute="group") %}
+    ## {{ group | upper_first }}
+    {% for commit in commits %}
+        - {% if commit.breaking %}\
+            [**breaking**] \
+        {% endif %}\
+        {% if commit.scope %}\
+            **{{ commit.scope | upper_first }}:** \
+        {% endif %}\
+        {{ commit.message | upper_first }} ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/peterhanania/portfolio/commit/{{ commit.id }}))\
+    {% endfor %}
+{% endfor %}
+"""
+
+footer = """
+"""
+
+[git]
+conventional_commits = true
+filter_unconventional = true
+commit_parsers = [
+    { message = "^ci", group = "CI" },
+    { message = "^build", group = "Build" },
+    { message = "^feat", group = "Features" },
+    { message = "^fix", group = "Bug Fixes" },
+    { message = "^docs", group = "Documentation" },
+    { message = "^perf", group = "Performance" },
+    { message = "^refactor", group = "Refactor" },
+    { message = "^style", group = "Styling" },
+    { message = "^test", group = "Testing" },
+    { message = "^chore\\(release\\):", skip = true },
+    { message = "^chore", group = "Miscellaneous Tasks" }
+]
+filter_commits = true
+tag_pattern = "v[0-9.]*"
+skip_tags = "v0.1.0-beta.1"
+ignore_tags = "v[0-9.]*-canary.[0-9]"
+topo_order = false
+sort_commits = "oldest"

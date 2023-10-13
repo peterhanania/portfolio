@@ -1,0 +1,7 @@
+# Binaries
+.yarn/releases/** binary
+.yarn/plugins/** binary
+
+# Config Files
+.swcrc text diff=json linguist-language=json
+.eslintrc text diff=json linguist-language=json

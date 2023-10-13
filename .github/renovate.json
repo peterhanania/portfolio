@@ -1,0 +1,21 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    ":separateMajorReleases",
+    ":combinePatchMinorReleases",
+    ":ignoreUnstable",
+    ":prImmediately",
+    ":semanticCommits",
+    ":semanticPrefixFixDepsChoreOthers",
+    ":updateNotScheduled",
+    ":ignoreModulesAndTests",
+    ":preserveSemverRanges",
+    ":prHourlyLimit4",
+    ":prConcurrentLimit20",
+    ":label(dependencies)",
+    ":enableVulnerabilityAlertsWithLabel(security)",
+    "group:monorepos",
+    "group:recommended",
+    "workarounds:all"
+  ]
+}
