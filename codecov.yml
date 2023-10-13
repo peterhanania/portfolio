@@ -11,19 +11,6 @@ coverage:
         base: auto
         target: auto
         threshold: 5%
-      docs:
-        base: auto
-        target: auto
-        threshold: 5%
-        flags:
-          - docs
-      checkbox:
-        base: auto
-        target: auto
-        threshold: 5%
-        flags:
-          - checkbox
-
 parsers:
   gcov:
     branch_detection:
@@ -31,34 +18,17 @@ parsers:
       loop: yes
       method: no
       macro: no
-
 comment:
   layout: 'reach,diff,flags,files,footer'
   behavior: default
   require_changes: false
 
 flags:
-  docs:
-    paths:
-      - docs/
-    carryforward: true
-  checkbox:
-    paths:
-      - packages/checkbox/
-    carryforward: true
-  core:
-    paths:
-      - packages/core/
-    carryforward: true
-  hooks:
-    paths:
-      - packages/hooks/
-    carryforward: true
   react:
     paths:
-      - packages/react/
+      - packages/frontend/
     carryforward: true
   switch:
     paths:
-      - packages/switch/
+      - packages/backend/
     carryforward: true
