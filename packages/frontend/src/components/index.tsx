@@ -111,9 +111,9 @@ export default function () {
 
   const calculateScreens = () => {
     setIsMaxHeight(
-      window.matchMedia('(min-width: 700px) and (max-height: 1199px)').matches
+      window.matchMedia('(min-width: 768px) and (max-height: 1199px)').matches
     );
-    setIsMediumScreen(window.matchMedia('(max-width: 700px)').matches);
+    setIsMediumScreen(window.matchMedia('(max-width: 768px)').matches);
   };
 
   /**

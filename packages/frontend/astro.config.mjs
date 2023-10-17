@@ -6,10 +6,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'server',
-  adapter: netlify({
-    edgeMiddleware: true
-  }),
+
   integrations: [preact({ compat: true }), compress()],
   vite: {
     ssr: {

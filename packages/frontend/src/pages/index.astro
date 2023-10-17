@@ -5,7 +5,7 @@ import "../styles/index.css"
 import 'react-tippy/dist/tippy.css';
 ---
 <style is:global>
-@media (min-width: 701px) {
+@media (min-width: var(--device-medium)) {
 	html {
 		overflow: hidden;
 	}
@@ -22,6 +22,7 @@ body {
 	background-size: 1vw auto;
 	background-image: url(/background_noise_effect.webp);
 	--space: 3.5rem;
+	--font-subtitle: 2rem;
 	padding: 0;
 	width: 100%;
 	height: 100%;
@@ -32,17 +33,25 @@ body {
 	background-blend-mode: normal;
 }
 
-@media (max-width: 701px) {
-
+@media (max-width:  var(--device-medium)) {
 	html,
 	body {
 		touch-action: none;
 	}
 }
 
-@media (max-width: 650px) {
+@media (max-width: var(--device-medium)) {
 	body {
-		--space: 1.5rem;
+		--space: 0;
+		--font-subtitle: 1.2rem;
+	}
+
+	.navigation_showcase {
+		display: none;
+	}
+
+	.socials {
+		display: none;
 	}
 }
 
@@ -53,26 +62,26 @@ main {
 	position: relative;
 }
 
-@media (max-width: 790px) {
+@media (max-width: var(--device-medium)) {
 	main {
 		flex-direction: column;
 		padding-right: var(--space);
 	}
 }
 
-@media (min-width: 1024px) {
+@media (min-width:  var(--device-large)) {
 	main {
 		margin-top: 0;
 	}
 }
 
-@media (min-width: 1200px) {
+@media (min-width:  var(--device-extra-large)) {
 	main {
 		margin: 0 7vw;
 	}
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: var(--device-medium)) {
 	main {
 		touch-action: none;
 		scroll-snap-type: y mandatory;
@@ -95,7 +104,7 @@ section:not([data-section='Main']):not([data-section='footer']) {
 	min-height: 100vh;
 }
 
-@media (min-width: 701px) {
+@media (min-width:  var(--device-medium)) {
 	section[content-hidden='true'] {
 		overflow: hidden;
 		-webkit-user-select: none;
@@ -129,8 +138,14 @@ nav svg:focus {
 	filter: drop-shadow(5px 5px 5px #222);
 }
 
-nav > div >svg {
+nav > div > svg {
 	width: 75px;
+}
+
+@media screen and (max-width:  var(--device-medium)) {
+	nav > div > svg {
+		width: 50px;
+	}
 }
 
 .opacity-hover-effect {
@@ -165,7 +180,7 @@ nav > div >svg {
 
 .header-title, .header-title h1 {
 	padding-bottom: 3px;
-	font-size: 4rem;
+	font-size: clamp(2rem, 10vw, 4rem);
 	line-height: 1;
 	font-weight: 700;
 	background-clip: text;
@@ -179,7 +194,7 @@ nav > div >svg {
 .header-title .subtitle {
 	max-width: unset;
 	margin-top: 2.4rem;
-	font-size: 2rem;
+	font-size: var(--font-subtitle);
 }
 
 
@@ -227,6 +242,13 @@ nav > div >svg {
 	justify-content: center;
 	text-align: center;
 }
+
+@media screen and (max-width:  var(--device-medium)) {
+	.rotating-image-wrapper {
+		height: 16%;
+	}
+}
+
 
 .rotating-image-wrapper img {
 	width: 200px;
@@ -325,7 +347,7 @@ nav > div >svg {
 	}
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: var(--device-medium)) {
 	.rotating-image-wrapper img {
 		width: 150px;
 	}
@@ -523,7 +545,7 @@ nav > div >svg {
 
 .headline-text {
 	font-weight: 600;
-	font-size: 5rem;
+	font-size: clamp(2rem, 8vw, 5rem);
 	line-height: 1.2;
 }
 
@@ -537,6 +559,13 @@ nav > div >svg {
 	margin: 0 5px;
 	padding-bottom: 4px;
 }
+
+@media screen and (max-width:  var(--device-large)) {
+	.headline-text span {
+		opacity: 1;
+	}
+}
+
 
 .headline-text span {
 	color: transparent;
@@ -568,7 +597,7 @@ nav > div >svg {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	margin-top: 5rem;
+	margin-top: clamp(2rem, 8vw, 5rem);
 	gap: 60px;
 }
 
@@ -580,7 +609,7 @@ nav > div >svg {
 }
 
 .statistics .group .number {
-	font-size: 3rem;
+	font-size: clamp(2rem, 6vw, 3rem);
 	font-weight: 600;
 	margin-bottom: 0.5rem;
 	color: var(--color-primary);
@@ -588,10 +617,11 @@ nav > div >svg {
 }
 
 .statistics .group .text {
-	font-size: 1.25rem;
+	font-size: clamp(.3rem, 3vw, 1.25rem);
 	font-weight: 600;
 	text-transform: uppercase;
 	color: var(--color-gray);
+	text-align: center;
 }
 
 @keyframes count-up {
@@ -650,7 +680,7 @@ nav > div >svg {
 	box-shadow: 0 0 12px var(--cursor2);
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width:  var(--device-large)) {
 
 	.cursor,
 	.cursor2,
@@ -823,6 +853,13 @@ body.navigation-content-open .nav-li:nth-child(9) {
 	transition: all 0.3s ease-out;
 }
 
+@media screen and (max-width:  var(--device-medium)) {
+ 	.h-wr-r {
+		padding-top: 0;
+	}
+}
+
+
 .mi {
 	height: 30px;
 	width: 30px;
@@ -969,7 +1006,7 @@ body.navigation-content-open .nav:before {
 }
 
 .language-container {
-	padding: 0px 0px 20px 40px;
+	padding: 0 0 20px clamp(10px, 2vw, 20px);
 	width: 100%;
 	max-width: 1200px;
 	margin: 0 auto;
@@ -979,9 +1016,15 @@ body.navigation-content-open .nav:before {
 	gap: 16px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: var(--device-medium)) {
 	.language-container {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
+		place-items: center;
+		text-align: center;
+	}
+
+	.language-container a {
+		display: none;
 	}
 }
 
@@ -1012,7 +1055,7 @@ body.navigation-content-open .nav:before {
 
 .hire-container {
 	margin-top: 1.7rem;
-	padding: 0px 0px 20px 40px;
+	padding: 0 0 20px clamp(10px, 2vw, 20px);
 	width: 100%;
 	max-width: 1200px;
 	position: relative;
@@ -1022,7 +1065,7 @@ body.navigation-content-open .nav:before {
 	width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: var(--device-medium)) {
 	.hire-container {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
@@ -1054,7 +1097,7 @@ body.navigation-content-open .nav:before {
 }
 
 .language-container>div:not(:first-child) .subtitle {
-	font-size: 3.125rem;
+	font-size: clamp(1rem, 6vw, 3.125rem);
 	font-weight: 500;
 }
 
@@ -1092,6 +1135,12 @@ body.navigation-content-open .nav:before {
 	justify-content: center;
 	gap: 6rem;
 	padding: 20px;
+}
+
+@media (max-width:  var(--device-medium)) {
+	.contact-container {
+		flex-direction: column;
+	}
 }
 
 .contact-container h2 {
@@ -1201,7 +1250,7 @@ body.navigation-content-open .nav:before {
 }
 
 .company-name {
-	font-size: 2rem;
+	font-size: var(--font-subtitle);
 	margin: 0;
 }
 
@@ -1254,7 +1303,7 @@ body.navigation-content-open .nav:before {
 }
 
 .projects_more {
-	margin-top: 5rem;
+	margin-top: clamp(2rem, 8vw, 5rem);
 	display: flex;
 	justify-content: center;
 	align-items: center;

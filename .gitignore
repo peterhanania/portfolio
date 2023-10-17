@@ -12,7 +12,8 @@ node_modules
 # testing
 coverage
 
-# next.js
+# dist
+.netlify
 .next/
 out/
 build
@@ -52,3 +53,6 @@ build-storybook.log
 
 # swc
 .swc/
+
+# Local Netlify folder
+.netlify

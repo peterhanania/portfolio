@@ -196,6 +196,10 @@ html {
   --cursor: rgba(255, 255, 255, 0.6);
   --cursor2: rgba(255, 255, 255, 0.2);
   --text-font: 'Plus Jakarta Sans', sans-serif;
+  --device-mobile: "640px";
+  --device-medium: "768px";
+  --device-large: "1024px";
+  --device-extra-large: "1200px"
 }
 
 *,
@@ -560,7 +564,7 @@ h1 {
 
 .h2,
 h2 {
-  font-size: 2rem;
+  font-size: var(--font-subtitle);
 }
 
 .h3,
