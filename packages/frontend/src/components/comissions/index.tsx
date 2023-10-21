@@ -12,12 +12,6 @@ const services = [
   'SEO Optimization'
 ];
 
-const reasonsToHireMe = [
-  'Expert Problem Solver',
-  'Innovative Web Developer',
-  'Dedicated to Excellence'
-];
-
 export default function ({ aria, name }: { aria: boolean; name: string }) {
   return (
     <section
@@ -37,13 +31,8 @@ export default function ({ aria, name }: { aria: boolean; name: string }) {
     >
       <h1 className="subheading">Hire Me</h1>
       <div className="comissions_section">
-        <h2 className="light-text text-header-comissions">
-          Ready to build your next big thing?
-        </h2>
-        <p className="text-subheader-comissions">
-          With passion and expertise, I turn ideas into reality. Let's innovate
-          together.
-        </p>
+        <h2 className="light-text text-header-comissions">Ready to build your next big thing?</h2>
+        <p className="text-subheader-comissions">With passion and expertise, I turn ideas into reality. Let's innovate together.</p>
         <div className={'flex-center'}>
           <div className="hire-container">
             {services.map((service, index) => (
@@ -67,12 +56,7 @@ export default function ({ aria, name }: { aria: boolean; name: string }) {
           <div>
             <h2>Email</h2>
             <p>peter@peterhanania.com</p>
-            <AccessibleButton
-              name={'Send me an email'}
-              label={'Send me an email'}
-              intent="primary/xs"
-              href="mailto:peter@peterhanania.com"
-            />
+            <AccessibleButton name={'Send me an email'} label={'Send me an email'} intent="primary/xs" href="mailto:peter@peterhanania.com" />
           </div>
           <div>
             <h2>LinkedIn</h2>

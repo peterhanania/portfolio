@@ -10,11 +10,7 @@ export class Logger {
   }
 
   private log(message: string, breaks?: number) {
-    process.stdout.write(
-      `${this.chalk.cyan(`[${this.name}]`)} ${message}${
-        breaks ? '\n'.repeat(breaks) : '\n'
-      }`
-    );
+    process.stdout.write(`${this.chalk.cyan(`[${this.name}]`)} ${message}${breaks ? '\n'.repeat(breaks) : '\n'}`);
   }
 
   public info(message: string, breaks?: number) {

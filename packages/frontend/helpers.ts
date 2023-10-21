@@ -1,25 +1,21 @@
 import { CURRENT_SECTION, NAVIGATION_ID, SECTION_SELECTOR } from './constants';
 
-export function wait(timeout: number = 0, cb: () => unknown): number | void {
+export function wait(timeout = 0, cb: () => unknown): number | void {
   if (typeof cb !== 'function') return;
   return window.setTimeout(cb, timeout);
 }
 
-export function debounce<T extends (...args: any[]) => void>(
-  fn: T,
-  ms: number = 0
-): (this: ThisParameterType<T>, ...args: Parameters<T>) => ReturnType<T> {
+export function debounce<T extends () => void>(fn: T, ms = 0): () => ReturnType<T> {
   let timeoutId: ReturnType<typeof setTimeout> | undefined;
 
-  return function (this: ThisParameterType<T>, ...args: Parameters<T>): any {
-    clearTimeout(timeoutId!);
+  return function (this: ThisParameterType<T>, ...args: Parameters<T>): ReturnType<T> {
+    clearTimeout(timeoutId);
     timeoutId = setTimeout(() => fn.apply(this, args), ms);
-  };
+    return undefined as ReturnType<T>;
+  } as () => ReturnType<T>;
 }
 
-export function getEventPath(
-  event: Event & { path?: EventTarget[] }
-): (EventTarget | null)[] {
+export function getEventPath(event: Event & { path?: EventTarget[] }): (EventTarget | null)[] {
   if (!(event instanceof Event)) return [];
 
   return (
@@ -41,26 +37,22 @@ export function getEventPath(
   );
 }
 
-export const isMacintosh = () =>
-  typeof window !== 'undefined' && navigator.platform.indexOf('Mac') > -1;
+export const isMacintosh = () => typeof window !== 'undefined' && navigator.platform.indexOf('Mac') > -1;
 
 export function goToSection(setSection, opts) {
-  let { node, modifier, smooth = true, focus = true } = opts;
+  let { node } = opts;
+  const { modifier, smooth = true, focus = true } = opts;
   if (!node) return;
 
-  const sections: any = getSections();
+  const sections = getSections();
 
   const app = document.getElementById('peterhanania_content');
   const HTML = document.documentElement;
 
   const getSectionId = () => node.dataset.section;
-  const curSectionIndex = sections.findIndex(({ dataset }) => {
-    return dataset.section === getSectionId();
-  });
+  const curSectionIndex = sections.findIndex(({ dataset }: HTMLElement) => dataset.section === getSectionId());
 
-  const findSection = (idx = 0) => {
-    return sections[curSectionIndex + idx];
-  };
+  const findSection = (idx = 0) => sections[curSectionIndex + idx];
 
   // determine what section to go to based on the modifier.
   if (modifier == 'next') {
@@ -86,9 +78,7 @@ export function goToSection(setSection, opts) {
 
     if (focus) {
       const navigationEl = document.getElementById(NAVIGATION_ID);
-      const nodeToFocus = !getFirstFocusableNode(node)
-        ? getFirstFocusableNode(navigationEl)
-        : node;
+      const nodeToFocus = !getFirstFocusableNode(node) ? getFirstFocusableNode(navigationEl) : node;
 
       if (nodeToFocus === null) return;
       nodeToFocus.focus();
@@ -96,9 +86,7 @@ export function goToSection(setSection, opts) {
   }, 200);
 }
 
-export const [getSections] = [
-  () => Array.from(document.querySelectorAll(SECTION_SELECTOR))
-];
+export const getSections = (): HTMLElement[] => Array.from(document.querySelectorAll(SECTION_SELECTOR)) as HTMLElement[];
 
 function smoothScroll(scrollTargetY, speed = 1000) {
   let currentTime = 0;
@@ -106,10 +94,7 @@ function smoothScroll(scrollTargetY, speed = 1000) {
   const derivedSpeed = isMotionReduced() ? speed * 3 : speed;
 
   // min time .1, max time .8 seconds
-  const time = Math.max(
-    0.1,
-    Math.min(Math.abs(scrollY - scrollTargetY) / derivedSpeed, 0.8)
-  );
+  const time = Math.max(0.1, Math.min(Math.abs(scrollY - scrollTargetY) / derivedSpeed, 0.8));
 
   // easing equations from https://github.com/danro/easing-js/blob/master/easing.js
   const easeInOutCubic = (pos) => {
@@ -120,8 +105,8 @@ function smoothScroll(scrollTargetY, speed = 1000) {
   function runAnimation() {
     currentTime += 1 / 60;
 
-    let p = currentTime / time;
-    let t = easeInOutCubic(p);
+    const p = currentTime / time;
+    const t = easeInOutCubic(p);
 
     if (p < 1) {
       requestAnimationFrame(runAnimation);
@@ -135,21 +120,17 @@ function smoothScroll(scrollTargetY, speed = 1000) {
   runAnimation();
 }
 
-export function getFirstFocusableNode(
-  target: HTMLElement = document.documentElement
-): HTMLElement | null {
+export function getFirstFocusableNode(target: HTMLElement = document.documentElement): HTMLElement | null {
   if (!(target instanceof HTMLElement)) return null;
   const [firstFocusableNode] = getFocusableNodes(target);
   return firstFocusableNode || null;
 }
 
-function slice(collection: any): any[] {
+function slice(collection) {
   return Array.prototype.slice.apply(collection);
 }
 
-export function getFocusableNodes(
-  target: HTMLElement = document.documentElement
-): HTMLElement[] | never[] {
+export function getFocusableNodes(target: HTMLElement = document.documentElement): HTMLElement[] | never[] {
   if (!(target instanceof HTMLElement)) return [];
   const potentialCandidates: HTMLElement[] = slice(
     target.querySelectorAll(
@@ -171,11 +152,7 @@ export function getFocusableNodes(
     )
   );
 
-  return potentialCandidates.filter(
-    (elem) =>
-      elem instanceof HTMLElement &&
-      window.getComputedStyle(elem).display !== 'none'
-  );
+  return potentialCandidates.filter((elem) => elem instanceof HTMLElement && window.getComputedStyle(elem).display !== 'none');
 }
 
 function isMotionReduced() {
@@ -194,14 +171,10 @@ export interface ElementInViewOptions {
   offset?: Offset;
 }
 
-export default function elementInView(
-  element: Element,
-  options?: ElementInViewOptions
-): boolean {
+export default function elementInView(element: Element, options?: ElementInViewOptions): boolean {
   if (!element) return false;
 
-  const { top, right, bottom, left, width, height } =
-    element.getBoundingClientRect();
+  const { top, right, bottom, left, width, height } = element.getBoundingClientRect();
 
   options = {
     threshold: 0,
@@ -217,14 +190,14 @@ export default function elementInView(
   };
 
   const threshold = {
-    x: options.threshold! * width,
-    y: options.threshold! * height
+    x: options.threshold * width,
+    y: options.threshold * height
   };
 
   return (
-    intersection.t > (options.offset!.top || 0) + threshold.y &&
-    intersection.r > (options.offset!.right || 0) + threshold.x &&
-    intersection.b > (options.offset!.bottom || 0) + threshold.y &&
-    intersection.l > (options.offset!.left || 0) + threshold.x
+    intersection.t > (options.offset.top || 0) + threshold.y &&
+    intersection.r > (options.offset.right || 0) + threshold.x &&
+    intersection.b > (options.offset.bottom || 0) + threshold.y &&
+    intersection.l > (options.offset.left || 0) + threshold.x
   );
 }

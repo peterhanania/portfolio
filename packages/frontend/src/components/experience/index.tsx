@@ -1,8 +1,7 @@
-import { cloneElement } from 'preact';
-import { Tooltip } from 'react-tippy';
-
 import technologies from '../../../constants/technologies';
 import AccessibleButton from '../../accessibility/button';
+import { cloneElement } from 'preact';
+import { Tooltip } from 'react-tippy';
 
 export default function ({ aria, name }: { aria: boolean; name: string }) {
   return (
@@ -26,9 +25,7 @@ export default function ({ aria, name }: { aria: boolean; name: string }) {
       <article className="language-container">
         <div>
           <p className="light-text">Here is a little bit about </p>
-          <span className="subtitle">
-            languages and technologies, that I am currently using.
-          </span>
+          <span className="subtitle">languages and technologies, that I am currently using.</span>
         </div>
         <div>
           <p className="light-text">Mastering</p>
@@ -79,9 +76,7 @@ export default function ({ aria, name }: { aria: boolean; name: string }) {
                 animation="scale"
                 html={
                   <div className="flex flex-col gap-2 p-2">
-                    <span className="text-sm font-bold">
-                      {technology.label}
-                    </span>
+                    <span className="text-sm font-bold">{technology.label}</span>
                   </div>
                 }
               >

@@ -1,10 +1,9 @@
-import { create } from 'zustand';
-
 import { SECTIONS } from '../constants';
+import { create } from 'zustand';
 
 export const useSectionStore = create<{
   section: string;
-  setSection: (section: string) => void;
+  setSection: (_section: string) => void;
 }>((set) => ({
   section: SECTIONS[0],
   setSection: (section) => set({ section })

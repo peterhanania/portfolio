@@ -18,10 +18,12 @@ node_modules
 # testing
 coverage
 
-# next.js
 .next/
 out/
 build
+dist
+.netlify
+index.d.ts
 
 # misc
 .DS_Store

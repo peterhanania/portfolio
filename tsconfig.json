@@ -18,16 +18,9 @@
     "resolveJsonModule": true,
     "jsx": "react-jsx",
     "paths": {
-      "@portfolio/*": ["packages/*/src"]
+      "@portfolio/*": ["packages/*"]
     }
   },
-  "include": [
-    "**/*.js",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.mts",
-    "**/*.json",
-    ".storybook/*.ts"
-  ],
+  "include": ["**/*.js", "**/*.ts", "**/*.tsx", "**/*.mts", "**/*.json", ".storybook/*.ts"],
   "exclude": ["node_modules", "lib"]
 }

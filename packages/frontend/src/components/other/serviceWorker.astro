@@ -1,6 +1,10 @@
 <>
-  {import.meta.env.MODE === 'production' && <>
-    <script is:inline src="/registerSW.js" />
-    <link rel="manifest" href="/manifest.webmanifest" />
-  </>}
+  {
+    import.meta.env.MODE === 'production' && (
+      <>
+        <script is:inline src="/registerSW.js" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+      </>
+    )
+  }
 </>

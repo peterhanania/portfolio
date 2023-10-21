@@ -14,8 +14,6 @@
 // };
 
 module.exports = {
-  '*.{js,mjs,ts,tsx,json}': (filenames) =>
-    `npx prettier -w ${filenames.join(' --ignore-path .prettierignore ')}`,
-  'packages/**/*.{ts,tsx}': (filenames) =>
-    `npm run lint -- ${filenames.join(' ')}`,
+  '*.{js,mjs,ts,tsx,json}': (filenames) => `npx prettier -w ${filenames.join(' --ignore-path .prettierignore ')}`,
+  'packages/**/*.{ts,tsx}': (filenames) => `npm run lint -- ${filenames.join(' ')}`
 };

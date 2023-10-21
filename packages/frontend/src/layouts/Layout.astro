@@ -18,113 +18,138 @@ const JSONLDData: WithContext<Person> = {
   name: 'Peter',
   url: 'https://peterhanania.com',
   image: '/images/logo.jpg',
-  knowsAbout: [
-
-  ],
+  knowsAbout: [],
   sameAs: ['https://github.com/peterhanania']
 };
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="utf-8" />
-      <title>{fullTitle}</title>
-      <meta name="viewport" content="width=device-width,initial-scale=1" />
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      <meta http-equiv="Content-Language" content="en" />
-      <meta name="mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta content="peterhanania" property="og:site_name" />
-      <meta content={fullTitle} property="og:title" />
-      <meta content="/images/logo.jpg" property="og:image" />
-      <meta content="image/png" property="og:image:type" />
-      <meta content="150" property="og:image:width" />
-      <meta content="150" property="og:image:height" />
-      <meta content="Discover Peter Hanania's portfolio. A Full stack developer with a passion for creating seamless web experiences. Explore innovative projects now!" property="og:description" />
-      <meta content="https://peterhanania.com" property="og:url" />
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:url" content="https://peterhanania.com" />
-      <meta name="twitter:title" content="peterhanania" />
-      <meta name="twitter:description" content="Discover Peter Hanania's portfolio. A Full stack developer with a passion for creating seamless web experiences. Explore innovative projects now!" />
-      <meta name="twitter:image" content="/images/logo.jpg" />
-      <meta name="twitter:image:type" content="image/png" />
-      <meta name="twitter:image:width" content="150" />
-      <meta name="twitter:image:height" content="150" />
-      <meta name="twitter:creator" content="@peterhanania" />
-      <meta name="twitter:site" content="@peterhanania" />
-      <meta name="description" content="Discover Peter Hanania's portfolio. A Full stack developer with a passion for creating seamless web experiences. Explore innovative projects now!" />
-      <meta name="title" content="peterhanania" />
-      <meta name="subject" content="Discover Peter Hanania's portfolio. A Full stack developer with a passion for creating seamless web experiences. Explore innovative projects now!" />
-      <meta name="copyright" content="peterhanania" />
-      <meta name="owner" content="peterhanania" />
-      <meta name="revised" content="Monday, October 16th, 2023, 9:00 am" />
-      <meta name="rating" content="General" />
-      <link rel="fluid-icon" type="image/png" href="/images/logo.jpg" />
-      <link rel="canonical" href="https://peterhanania.com/index.html" />
-      <link rel="apple-touch-icon" sizes="72x72" href="/images/jAdmakYwaIDgeRlAnTERKl/icon-72x72.png" />
-      <link rel="icon" type="image/png" sizes="72x72" href="/images/jAdmakYwaIDgeRlAnTERKl/icon-72x72.png" />
-      <link rel="mask-icon" href="/images/logo.svg" color="#4C77E5" />
-      <meta name="msapplication-TileColor" content="#4C77E5" />
-      <meta name="theme-color" content="#4C77E5" />
-      <link rel="shortcut icon" href="/favicon.ico" />
-      <JsonLd data={JSONLDData} />
-      <SW />
-   </head>
-   <style>
+  <head>
+    <meta charset="utf-8" />
+    <title>{fullTitle}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta content="peterhanania" property="og:site_name" />
+    <meta content={fullTitle} property="og:title" />
+    <meta content="/images/logo.jpg" property="og:image" />
+    <meta content="image/png" property="og:image:type" />
+    <meta content="150" property="og:image:width" />
+    <meta content="150" property="og:image:height" />
+    <meta
+      content="Discover Peter Hanania's portfolio. A Full stack developer with a passion for creating seamless web experiences. Explore innovative projects now!"
+      property="og:description"
+    />
+    <meta content="https://peterhanania.com" property="og:url" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://peterhanania.com" />
+    <meta name="twitter:title" content="peterhanania" />
+    <meta
+      name="twitter:description"
+      content="Discover Peter Hanania's portfolio. A Full stack developer with a passion for creating seamless web experiences. Explore innovative projects now!"
+    />
+    <meta name="twitter:image" content="/images/logo.jpg" />
+    <meta name="twitter:image:type" content="image/png" />
+    <meta name="twitter:image:width" content="150" />
+    <meta name="twitter:image:height" content="150" />
+    <meta name="twitter:creator" content="@peterhanania" />
+    <meta name="twitter:site" content="@peterhanania" />
+    <meta
+      name="description"
+      content="Discover Peter Hanania's portfolio. A Full stack developer with a passion for creating seamless web experiences. Explore innovative projects now!"
+    />
+    <meta name="title" content="peterhanania" />
+    <meta
+      name="subject"
+      content="Discover Peter Hanania's portfolio. A Full stack developer with a passion for creating seamless web experiences. Explore innovative projects now!"
+    />
+    <meta name="copyright" content="peterhanania" />
+    <meta name="owner" content="peterhanania" />
+    <meta name="revised" content="Monday, October 16th, 2023, 9:00 am" />
+    <meta name="rating" content="General" />
+    <link rel="fluid-icon" type="image/png" href="/images/logo.jpg" />
+    <link rel="canonical" href="https://peterhanania.com/index.html" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/jAdmakYwaIDgeRlAnTERKl/icon-72x72.png" />
+    <link rel="icon" type="image/png" sizes="72x72" href="/images/jAdmakYwaIDgeRlAnTERKl/icon-72x72.png" />
+    <link rel="mask-icon" href="/images/logo.svg" color="#4C77E5" />
+    <meta name="msapplication-TileColor" content="#4C77E5" />
+    <meta name="theme-color" content="#4C77E5" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <JsonLd data={JSONLDData} />
+    <SW />
+    <style>
       #peterhanania {
-      background-color: var(--color-secondary);
-      transition: all 1s ease-in;
+        background-color: var(--color-secondary);
+        transition: all 1s ease-in;
       }
       #peterhanania::before {
-      content: "";
-      height: 100vh;
-      width: 100vw;
-      color: rgba(113, 113, 113, 0.07);
-      position: fixed;
-      z-index: -1;
-      background: linear-gradient(currentcolor 1px, transparent 1px) 0% 0% / 100px 102px, linear-gradient(to right, currentcolor 1px, transparent 1px) 0% 0% / 100px 102px;
-      transition: all 0.5s linear 0s;
+        content: '';
+        height: 100vh;
+        width: 100vw;
+        color: rgba(113, 113, 113, 0.07);
+        position: fixed;
+        z-index: -1;
+        background: linear-gradient(currentcolor 1px, transparent 1px) 0% 0% / 100px 102px,
+          linear-gradient(to right, currentcolor 1px, transparent 1px) 0% 0% / 100px 102px;
+        transition: all 0.5s linear 0s;
       }
       #peterhanania::after {
-      position: fixed;
-      content: "";
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      opacity: 0.1;
-      transform: translateZ(0px);
-      filter: blur(100px) saturate(100%);
-      top: 0px;
-      transition: all 1s ease-in;
-      animation: fadeIn .5s ease-in;
+        position: fixed;
+        content: '';
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        opacity: 0.1;
+        transform: translateZ(0px);
+        filter: blur(100px) saturate(100%);
+        top: 0px;
+        transition: all 1s ease-in;
+        animation: fadeIn 0.5s ease-in;
       }
       @keyframes fadeIn {
-      0% {
-      opacity: 0;
-      }
-      100% {
-      opacity: 0.1;
-      }
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0.1;
+        }
       }
       html[data-current-section='Main'] #peterhanania::after {
-      background: radial-gradient(at 0% 0%, #0048FF 0px, transparent 50%), radial-gradient(at 40% 40%, rgb(30, 144, 255) 0px, transparent 50%), radial-gradient(at 90% 10%, rgb(255, 105, 180) 0px, transparent 50%), radial-gradient(at 50% 95%, rgb(0, 255, 255) 0px, transparent 50%), radial-gradient(at 20% 30%, rgb(50, 205, 50) 0px, transparent 50%), radial-gradient(at 90% 90%, var(--color-secondary) 0px, transparent 50%), radial-gradient(at 33% 50%, rgb(255, 69, 0) 0px, transparent 50%), radial-gradient(at 79% 53%, rgb(128, 0, 128) 0px, transparent 50%);
+        background: radial-gradient(at 0% 0%, #0048ff 0px, transparent 50%), radial-gradient(at 40% 40%, rgb(30, 144, 255) 0px, transparent 50%),
+          radial-gradient(at 90% 10%, rgb(255, 105, 180) 0px, transparent 50%), radial-gradient(at 50% 95%, rgb(0, 255, 255) 0px, transparent 50%),
+          radial-gradient(at 20% 30%, rgb(50, 205, 50) 0px, transparent 50%), radial-gradient(at 90% 90%, var(--color-secondary) 0px, transparent 50%),
+          radial-gradient(at 33% 50%, rgb(255, 69, 0) 0px, transparent 50%), radial-gradient(at 79% 53%, rgb(128, 0, 128) 0px, transparent 50%);
       }
       html[data-current-section='About'] #peterhanania::after {
-      background: radial-gradient(at 40% 40%, rgb(255, 0, 0) 0px, transparent 50%), radial-gradient(at 90% 10%, rgb(0, 128, 0) 0px, transparent 50%), radial-gradient(at 50% 95%, rgb(255, 255, 0) 0px, transparent 50%), radial-gradient(at 20% 30%, rgb(0, 0, 255) 0px, transparent 50%), radial-gradient(at 90% 90%, #FF00FF 0px, transparent 50%), radial-gradient(at 33% 50%, rgb(255, 165, 0) 0px, transparent 50%), radial-gradient(at 79% 53%, rgb(0, 128, 128) 0px, transparent 50%);
+        background: radial-gradient(at 40% 40%, rgb(255, 0, 0) 0px, transparent 50%), radial-gradient(at 90% 10%, rgb(0, 128, 0) 0px, transparent 50%),
+          radial-gradient(at 50% 95%, rgb(255, 255, 0) 0px, transparent 50%), radial-gradient(at 20% 30%, rgb(0, 0, 255) 0px, transparent 50%),
+          radial-gradient(at 90% 90%, #ff00ff 0px, transparent 50%), radial-gradient(at 33% 50%, rgb(255, 165, 0) 0px, transparent 50%),
+          radial-gradient(at 79% 53%, rgb(0, 128, 128) 0px, transparent 50%);
       }
       html[data-current-section='Experience'] #peterhanania::after {
-      background: radial-gradient(at 0% 0%, #8A2BE2 0px, transparent 50%), radial-gradient(at 40% 40%, #9932CC 0px, transparent 50%), radial-gradient(at 90% 10%, #9400D3 0px, transparent 50%), radial-gradient(at 50% 95%, #DA70D6 0px, transparent 50%);
+        background: radial-gradient(at 0% 0%, #8a2be2 0px, transparent 50%), radial-gradient(at 40% 40%, #9932cc 0px, transparent 50%),
+          radial-gradient(at 90% 10%, #9400d3 0px, transparent 50%), radial-gradient(at 50% 95%, #da70d6 0px, transparent 50%);
       }
       html[data-current-section='Projects'] #peterhanania::after {
-      background: radial-gradient(at 40% 40%, rgb(0, 0, 255) 0px, transparent 50%), radial-gradient(at 90% 10%, rgb(0, 128, 0) 0px, transparent 50%), radial-gradient(at 50% 95%, rgb(173, 216, 230) 0px, transparent 50%), radial-gradient(at 20% 30%, rgb(70, 130, 180) 0px, transparent 50%), radial-gradient(at 90% 90%, #00FFFF 0px, transparent 50%), radial-gradient(at 33% 50%, rgb(100, 149, 237) 0px, transparent 50%), radial-gradient(at 79% 53%, rgb(0, 255, 255) 0px, transparent 50%);
+        background: radial-gradient(at 40% 40%, rgb(0, 0, 255) 0px, transparent 50%), radial-gradient(at 90% 10%, rgb(0, 128, 0) 0px, transparent 50%),
+          radial-gradient(at 50% 95%, rgb(173, 216, 230) 0px, transparent 50%), radial-gradient(at 20% 30%, rgb(70, 130, 180) 0px, transparent 50%),
+          radial-gradient(at 90% 90%, #00ffff 0px, transparent 50%), radial-gradient(at 33% 50%, rgb(100, 149, 237) 0px, transparent 50%),
+          radial-gradient(at 79% 53%, rgb(0, 255, 255) 0px, transparent 50%);
       }
       html[data-current-section='Comissions'] #peterhanania::after {
-      background: radial-gradient(at 40% 40%, rgb(255, 69, 0) 0px, transparent 50%), radial-gradient(at 90% 10%, rgb(255, 215, 0) 0px, transparent 50%), radial-gradient(at 50% 95%, rgb(255, 105, 180) 0px, transparent 50%), radial-gradient(at 20% 30%, rgb(0, 255, 0) 0px, transparent 50%), radial-gradient(at 90% 90%, #9400D3 0px, transparent 50%), radial-gradient(at 33% 50%, rgb(255, 0, 255) 0px, transparent 50%), radial-gradient(at 79% 53%, rgb(255, 165, 0) 0px, transparent 50%);
+        background: radial-gradient(at 40% 40%, rgb(255, 69, 0) 0px, transparent 50%),
+          radial-gradient(at 90% 10%, rgb(255, 215, 0) 0px, transparent 50%), radial-gradient(at 50% 95%, rgb(255, 105, 180) 0px, transparent 50%),
+          radial-gradient(at 20% 30%, rgb(0, 255, 0) 0px, transparent 50%), radial-gradient(at 90% 90%, #9400d3 0px, transparent 50%),
+          radial-gradient(at 33% 50%, rgb(255, 0, 255) 0px, transparent 50%), radial-gradient(at 79% 53%, rgb(255, 165, 0) 0px, transparent 50%);
       }
-   </style>
-   <body id="peterhanania">
-      <slot />
-      <script></script>
-   </body>
+    </style></head
+  >
+
+  <body id="peterhanania">
+    <slot />
+    <script></script>
+  </body>
 </html>

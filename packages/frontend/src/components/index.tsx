@@ -1,16 +1,6 @@
-import { useEffect, useState } from 'preact/hooks';
-import { Tooltip } from 'react-tippy';
-
 import pkg from '../../../../package.json';
 import { CURRENT_SECTION, NAVIGATION_ID, SECTIONS } from '../../constants';
-import elementInView, {
-  goToSection as GoToSection,
-  debounce,
-  getEventPath,
-  getSections,
-  isMacintosh,
-  wait
-} from '../../helpers';
+import elementInView, { goToSection as GoToSection, debounce, getEventPath, getSections, isMacintosh, wait } from '../../helpers';
 import { useSectionStore } from '../states';
 import IntroductionComponent from './about';
 import ComissionsComponent from './comissions';
@@ -19,37 +9,33 @@ import AboutComponent from './main';
 import NavigationComponent from './navigation';
 import Cursor from './other/cursor';
 import ProjectsComponent from './projects';
+import { useEffect, useState } from 'preact/hooks';
+import { Tooltip } from 'react-tippy';
 import { createSignal } from 'solid-js';
 
-let version = pkg.version;
+const version = pkg.version;
 
 export default function () {
-  const [globalSection, setGlobalSection] = useSectionStore((state) => [
-    state.section,
-    state.setSection
-  ]);
+  const [globalSection, setGlobalSection] = useSectionStore((state) => [state.section, state.setSection]);
   const [touchY, setTouchY] = useState<null | number>(null);
-  const [previousTime, setPreviousTime] = useState<number>(
-    new Date().getTime()
-  );
+  const [previousTime, setPreviousTime] = useState<number>(new Date().getTime());
   const [isMaxHeight, setIsMaxHeight] = createSignal<boolean>(false);
   const [isMediumScreen, setIsMediumScreen] = createSignal<boolean>(false);
 
-  const mostVisibleSection = () => {
-    return getSections().find((section: any) => {
-      const sectionOffsetTop = parseInt(section.offsetTop);
+  const mostVisibleSection = () =>
+    getSections().find((section) => {
+      const sectionOffsetTop = String(section.offsetTop);
       const docElemScrollTop = document.documentElement.scrollTop;
 
-      return Math.abs((sectionOffsetTop - docElemScrollTop) / 100) < 2; // 2 percent
+      return Math.abs((parseInt(sectionOffsetTop) - docElemScrollTop) / 100) < 2; // 2 percent
     });
-  };
 
   const currentSection = () => {
     const app = document.getElementById('peterhanania_content');
     return app?.dataset[CURRENT_SECTION];
   };
 
-  const getSection = (id?: string): Element => {
+  const getSection = (id?: string): Element | null => {
     if (!id) id = currentSection();
     const sectionElem = document.querySelector(`[data-section='${id}']`);
 
@@ -67,8 +53,7 @@ export default function () {
 
     const hidden = isMaxHeight()
       ? currentSection() !== id
-      : getSection(id) instanceof HTMLElement &&
-        !elementInView(getSection(id), { threshold: 0.5 });
+      : getSection(id) instanceof HTMLElement && !elementInView(getSection(id), { threshold: 0.5 });
 
     return hidden;
   };
@@ -85,7 +70,7 @@ export default function () {
 
     return GoToSection((section) => {
       setGlobalSection(section);
-      //@ts-expect-error
+      //@ts-expect-error - :)
     }, ...args);
   };
 
@@ -102,9 +87,7 @@ export default function () {
   };
 
   const calculateScreens = () => {
-    setIsMaxHeight(
-      window.matchMedia('(min-width: 768px) and (max-height: 1199px)').matches
-    );
+    setIsMaxHeight(window.matchMedia('(min-width: 768px) and (max-height: 1199px)').matches);
     setIsMediumScreen(window.matchMedia('(max-width: 768px)').matches);
   };
 
@@ -194,12 +177,7 @@ export default function () {
    * @return {void}
    */
   const handleTouchmove = (event) => {
-    if (
-      isMediumScreen() ||
-      !Array.isArray(event.changedTouches) ||
-      scrollingLudicrouslyFast()
-    )
-      return;
+    if (isMediumScreen() || !Array.isArray(event.changedTouches) || scrollingLudicrouslyFast()) return;
 
     const curTouchY = event.changedTouches[0].clientY;
 
@@ -229,9 +207,7 @@ export default function () {
    * position of the current section.
    * @return {void}
    */
-  const handleResize = () => {
-    return debounce(recalcSection, 200)();
-  };
+  const handleResize = () => debounce(recalcSection, 200)();
 
   /**
    * Hijack scrolling.
@@ -243,19 +219,9 @@ export default function () {
 
     const SPACEBAR = [' ', 'Spacebar'];
     const isCommandKey = () => isMacintosh() && event.metaKey;
-    const downwardKeys = [
-      'Down',
-      ...SPACEBAR,
-      'ArrowDown',
-      'Right',
-      'PageDown',
-      'ArrowRight'
-    ];
+    const downwardKeys = ['Down', ...SPACEBAR, 'ArrowDown', 'Right', 'PageDown', 'ArrowRight'];
     const upwardKeys = ['Up', 'ArrowUp', 'Left', 'PageUp', 'ArrowLeft'];
-    const isScrollableElemFocused = [
-      window.document.body,
-      window.document.documentElement
-    ].includes(event.target);
+    const isScrollableElemFocused = [window.document.body, window.document.documentElement].includes(event.target);
 
     const inEventPath = (predicate) =>
       getEventPath(event)
@@ -266,11 +232,7 @@ export default function () {
     const isSectionFocused = inEventPath((el) => el && el.dataset.section);
     const isFormFocused = inEventPath((el) => el && el.tagName === 'FORM');
 
-    if (
-      isFormFocused ||
-      scrollingLudicrouslyFast(500) ||
-      !(isNavFocused || isSectionFocused || isScrollableElemFocused)
-    ) {
+    if (isFormFocused || scrollingLudicrouslyFast(500) || !(isNavFocused || isSectionFocused || isScrollableElemFocused)) {
       return;
     }
 
@@ -338,14 +300,11 @@ export default function () {
       <NavigationComponent
         current_section={globalSection}
         scrollToTop={() => {
-          if(window.innerWidth <= 768) {
-            window.scrollTo({top: 0, behavior: 'smooth'});
-          } else 
-          {(
-            document.querySelector(
-              `[aria-label="Visit ${SECTIONS[0]}"]`
-            ) as HTMLElement
-          )?.click();}
+          if (window.innerWidth <= 768) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            (document.querySelector(`[aria-label="Visit ${SECTIONS[0]}"]`) as HTMLElement)?.click();
+          }
         }}
         toggleNav={() => {
           const navOpen = document.documentElement.dataset.navOpen === 'true';
@@ -353,44 +312,18 @@ export default function () {
         }}
       />
       <main id="peterhanania_content" tabIndex={-1}>
-        <AboutComponent
-          name={SECTIONS[0]}
-          aria={isSectionHidden(SECTIONS[0])}
-        />
-        <IntroductionComponent
-          current_section={globalSection}
-          name={SECTIONS[1]}
-          aria={isSectionHidden(SECTIONS[1])}
-        />{' '}
-        <ExperienceComponent
-          name={SECTIONS[2]}
-          aria={isSectionHidden(SECTIONS[2])}
-        />{' '}
-        <ProjectsComponent
-          name={SECTIONS[3]}
-          aria={isSectionHidden(SECTIONS[3])}
-        />
-        <ComissionsComponent
-          name={SECTIONS[4]}
-          aria={isSectionHidden(SECTIONS[4])}
-        />{' '}
+        <AboutComponent name={SECTIONS[0]} aria={isSectionHidden(SECTIONS[0])} />
+        <IntroductionComponent current_section={globalSection} name={SECTIONS[1]} aria={isSectionHidden(SECTIONS[1])} />{' '}
+        <ExperienceComponent name={SECTIONS[2]} aria={isSectionHidden(SECTIONS[2])} />{' '}
+        <ProjectsComponent name={SECTIONS[3]} aria={isSectionHidden(SECTIONS[3])} />
+        <ComissionsComponent name={SECTIONS[4]} aria={isSectionHidden(SECTIONS[4])} />{' '}
       </main>
       <div className={'socials'}>
         <ul>
           <li className={'hover'}>
-            <Tooltip
-              animation="scale"
-              position="right"
-              arrow={true}
-              html={'Discord'}
-            >
+            <Tooltip animation="scale" position="right" arrow={true} html={'Discord'}>
               {' '}
-              <a
-                href="https://discord.com/users/710465231779790849"
-                aria-label="Discord"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href="https://discord.com/users/710465231779790849" aria-label="Discord" target="_blank" rel="noreferrer">
                 <svg
                   width="64px"
                   height="64px"
@@ -402,11 +335,7 @@ export default function () {
                   alt={'Discord Logo'}
                 >
                   <g id="SVGRepo_bgCarrier" strokeWidth={0} />
-                  <g
-                    id="SVGRepo_tracerCarrier"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
+                  <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
                   <g id="SVGRepo_iconCarrier">
                     {' '}
                     <path
@@ -420,19 +349,9 @@ export default function () {
             </Tooltip>
           </li>
           <li className={'hover'}>
-            <Tooltip
-              animation="scale"
-              position="right"
-              arrow={true}
-              html={'GitHub'}
-            >
+            <Tooltip animation="scale" position="right" arrow={true} html={'GitHub'}>
               {' '}
-              <a
-                href="https://github.com/peterhanania"
-                aria-label="GitHub"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href="https://github.com/peterhanania" aria-label="GitHub" target="_blank" rel="noreferrer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   role="img"
@@ -454,18 +373,8 @@ export default function () {
 
           <li className={'hover'}>
             {' '}
-            <Tooltip
-              animation="scale"
-              position="right"
-              arrow={true}
-              html={'LinkedIn'}
-            >
-              <a
-                href="https://www.linkedin.com/in/peterhanania"
-                aria-label="Linkedin"
-                target="_blank"
-                rel="noreferrer"
-              >
+            <Tooltip animation="scale" position="right" arrow={true} html={'LinkedIn'}>
+              <a href="https://www.linkedin.com/in/peterhanania" aria-label="Linkedin" target="_blank" rel="noreferrer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   role="img"
@@ -476,7 +385,6 @@ export default function () {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   aria-label="LinkedIn Logo"
-                  alt={'LinkedIn Logo'}
                 >
                   <title>LinkedIn</title>
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -489,31 +397,25 @@ export default function () {
         </ul>
       </div>
       <div className={'navigation_showcase'}>
-        {SECTIONS.map((section, index) => {
-          return (
-            <div
-              tabIndex={0}
-              role="button"
-              aria-label={'Visit ' + section}
-              key={index}
-              onClick={
-                globalSection === section
-                  ? undefined
-                  : () => {
-                      goToSection({
-                        node: getSection(section)
-                      });
-                    }
-              }
-            >
-              <div
-                className={`${
-                  globalSection === section ? 'active' : 'not-active hover'
-                }`}
-              />
-            </div>
-          );
-        })}
+        {SECTIONS.map((section, index) => (
+          <div
+            tabIndex={0}
+            role="button"
+            aria-label={'Visit ' + section}
+            key={index}
+            onClick={
+              globalSection === section
+                ? undefined
+                : () => {
+                    goToSection({
+                      node: getSection(section)
+                    });
+                  }
+            }
+          >
+            <div className={`${globalSection === section ? 'active' : 'not-active hover'}`} />
+          </div>
+        ))}
       </div>
       <Cursor />
     </>

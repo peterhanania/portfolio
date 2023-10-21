@@ -36,10 +36,7 @@ export default function ({ aria, name }: { aria: boolean; name: string }) {
           <h1>I build things for the Web.</h1>
         </div>
         <div className="description-container">
-          <p className="subtitle">
-            I am a Full-Stack developer living in Canada working remotely with
-            the whole world.
-          </p>
+          <p className="subtitle">I am a Full-Stack developer living in Canada working remotely with the whole world.</p>
         </div>
         <div className="text-center">
           <div className="button-container">
@@ -47,24 +44,16 @@ export default function ({ aria, name }: { aria: boolean; name: string }) {
               name={'Hire Me'}
               label={'Hire Me'}
               intent="primary"
-              onClick={
-                ()=>{
-                  if(window.innerWidth <= 768){
-                   
-                    const comissions = document.querySelector('[data-section="Comissions"]');
-                    if(comissions){
-                      comissions.scrollIntoView({behavior: "smooth"});
-                    }
-
+              onClick={() => {
+                if (window.innerWidth <= 768) {
+                  const comissions = document.querySelector('[data-section="Comissions"]');
+                  if (comissions) {
+                    comissions.scrollIntoView({ behavior: 'smooth' });
                   }
-                  else {
-                     (document.querySelector(
-                   `[aria-label="Visit Comissions"]`
-                   ) as HTMLElement
-                   )?.click();
-                  }
+                } else {
+                  (document.querySelector(`[aria-label="Visit Comissions"]`) as HTMLElement)?.click();
                 }
-              }
+              }}
             />
           </div>
         </div>

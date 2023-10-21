@@ -2,15 +2,15 @@ name: ESLint
 on:
   push:
     branches:
-      - "*"
-      - "!docs"
+      - '*'
+      - '!docs'
     paths:
-      - "packages/frontend/**"
-      - "packages/backend/**"
-      - ".eslintrc.*"
-      - "package.json"
-      - "yarn.lock"
-      - ".github/workflows/lint.yml"
+      - 'packages/frontend/**'
+      - 'packages/backend/**'
+      - '.eslintrc.*'
+      - 'package.json'
+      - 'yarn.lock'
+      - '.github/workflows/lint.yml'
   workflow_dispatch:
 
 jobs:
@@ -36,18 +36,15 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install
 
-      - name: Run ESLint for frontend
-        run: yarn workspace frontend lint:fix
-
-      - name: Run ESLint for backend
-        run: yarn workspace backend lint:fix
+      - name: Run ESLint for all files
+        run: yarn post-fix
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
           add: packages/frontend/src packages/backend/src
-          message: "chore(lint): auto-lint source code"
+          message: 'chore(lint): auto-lint source code'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

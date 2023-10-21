@@ -1,8 +1,7 @@
+import pkg from '../../../../../package.json';
 import { useEffect } from 'preact/hooks';
 
-import pkg from '../../../../../package.json';
-
-let version = pkg.version;
+const version = pkg.version;
 const links = [
   {
     name: 'Experience'
@@ -15,15 +14,7 @@ const links = [
   }
 ];
 
-export default function ({
-  current_section,
-  scrollToTop,
-  toggleNav,
-}: {
-  current_section: string;
-  scrollToTop: () => void;
-  toggleNav: () => void;
-}) {
+export default function ({ current_section, scrollToTop, toggleNav }: { current_section: string; scrollToTop: () => void; toggleNav: () => void }) {
   useEffect(() => {
     const menu = document.querySelector('.mi');
     const menuItems = document.querySelectorAll('.nav-li');
@@ -80,24 +71,17 @@ export default function ({
                   if (current_section !== link.name) {
                     toggleNav();
 
-                    if(window.innerWidth <= 768){
+                    if (window.innerWidth <= 768) {
                       const linkSection = document.querySelector(`[data-section="${link.name}"]`);
-                      if(linkSection){
-                        linkSection.scrollIntoView({behavior: "smooth"});
+                      if (linkSection) {
+                        linkSection.scrollIntoView({ behavior: 'smooth' });
                       }
-                  }
-                   else {
-                     (
-                      document.querySelector(
-                        `[aria-label="Visit ${link.name}"]`
-                      ) as HTMLElement
-                    )?.click();
-                   }
+                    } else {
+                      (document.querySelector(`[aria-label="Visit ${link.name}"]`) as HTMLElement)?.click();
+                    }
                   }
                 }}
-                className={
-                  'nav-li ' + (current_section === link.name ? 'active' : '')
-                }
+                className={'nav-li ' + (current_section === link.name ? 'active' : '')}
               >
                 <a
                   onClick={(e) => {
@@ -114,29 +98,16 @@ export default function ({
           <footer>
             <p className={'subheading'}>
               v{version} — made with <span>❤️</span> by{' '}
-              <a
-                href={'https://github.com/peterhanania'}
-                target={'_blank'}
-                rel={'noopener noreferrer'}
-              >
+              <a href={'https://github.com/peterhanania'} target={'_blank'} rel={'noopener noreferrer'}>
                 Peter Hanania
               </a>
             </p>
-             <p className={'subheading'}>
-              © Peter {
-                new Date().getFullYear()
-              }. All rights reserved.
-            </p>
+            <p className={'subheading'}>© Peter {new Date().getFullYear()}. All rights reserved.</p>
           </footer>
         </div>
       </div>
       <nav>
-        <div
-          role="button"
-          tabIndex={0}
-          aria-label="Visit Menu"
-          onClick={scrollToTop}
-        >
+        <div role="button" tabIndex={0} aria-label="Visit Menu" onClick={scrollToTop}>
           <svg
             width={106}
             height={112}
@@ -145,13 +116,9 @@ export default function ({
             xmlns="http://www.w3.org/2000/svg"
             className={'hover'}
             aria-label="Visit Menu Icon"
-            alt={'Visit Menu'}
           >
             <g clipPath="url(#clip0_366_81)">
-              <path
-                d="M27 82.1111C27 80.3929 28.3929 79 30.1111 79H58V81C58 98.1208 44.1208 112 27 112V82.1111Z"
-                fill="white"
-              />
+              <path d="M27 82.1111C27 80.3929 28.3929 79 30.1111 79H58V81C58 98.1208 44.1208 112 27 112V82.1111Z" fill="white" />
               <path
                 fillRule="evenodd"
                 clipRule="evenodd"
@@ -169,12 +136,7 @@ export default function ({
 
         <div className="h-wr">
           <div className="h-wr-r opacity-hover-effect">
-            <div
-              className="mi hover"
-              role="button"
-              tabIndex={0}
-              aria-label="Toggle Navigation"
-            >
+            <div className="mi hover" role="button" tabIndex={0} aria-label="Toggle Navigation">
               <span className="m-i m-i-left" />
               <span className="m-i" />
               <span className="m-i m-i-right" />

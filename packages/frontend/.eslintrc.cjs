@@ -1,17 +1,6 @@
 module.exports = {
-  ignorePatterns: [
-    'node_modules',
-    'dist',
-    '.next',
-    'src/components/other/serviceWorker.astro'
-  ],
-  plugins: [
-    'prettier',
-    '@typescript-eslint',
-    'unused-imports',
-    'simple-import-sort',
-    'import'
-  ],
+  ignorePatterns: ['node_modules', 'dist', 'src/components/other/serviceWorker.astro'],
+  plugins: ['prettier', '@typescript-eslint', 'unused-imports', 'simple-import-sort', 'import'],
   rules: {
     'linebreak-style': ['warn', 'unix'],
     'prettier/prettier': [
@@ -23,7 +12,8 @@ module.exports = {
         singleQuote: true,
         tabWidth: 2,
         useTabs: false,
-        trailingComma: 'none'
+        trailingComma: 'none',
+        jsxBracketSameLine: false
       }
     ]
   },

@@ -42,4 +42,4 @@ const safeJsonLdReplacer = (_: string, value: any): any | undefined => {
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(data, safeJsonLdReplacer, space)}></script>
+<script type="application/ld+json" set:html={JSON.stringify(data, safeJsonLdReplacer, space)} />

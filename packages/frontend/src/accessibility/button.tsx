@@ -11,17 +11,10 @@ interface AccessibleButtonProps {
   href?: string;
 }
 
-export default function AccessibleButton({
-  name,
-  label,
-  intent,
-  fullWidth,
-  onClick,
-  href
-}: AccessibleButtonProps) {
+export default function AccessibleButton({ name, label, intent, fullWidth, onClick, href }: AccessibleButtonProps) {
   const buttonClasses = `button button-${intent.split('/')[0]} ${
-    intent.split('/')[1] ? `button-${intent.split('/')[1]}` : ''
-  } ${fullWidth ? 'button-fullWidth' : ''}`;
+    intent.split('/')[1] ? `button-${intent.split('/')[1]}` : '' + (fullWidth ? ' button-fullWidth' : '')
+  }`;
 
   if (href)
     return (
@@ -37,14 +30,9 @@ export default function AccessibleButton({
         {name}
       </a>
     );
+
   return (
-    <button
-      tabIndex={0}
-      role="button"
-      aria-label={label}
-      className={buttonClasses + ' hover'}
-      onClick={onClick}
-    >
+    <button tabIndex={0} role="button" aria-label={label} className={buttonClasses + ' hover'} onClick={onClick}>
       {name}
     </button>
   );
