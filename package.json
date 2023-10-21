@@ -1,7 +1,7 @@
 {
   "name": "peterhanania-portfolio",
   "author": "Peter Hanania",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "license": "MIT",
   "private": true,
   "repository": {
@@ -20,7 +20,8 @@
     "start": "astro dev --root ./packages/frontend/",
     "build": "astro build --root ./packages/frontend/",
     "preview": "astro preview --root ./packages/frontend/",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "npm run build && netlify deploy --build --prod"
   },
   "resolutions": {
     "glob-parent": ">=6.0.2",

@@ -19,6 +19,7 @@ import AboutComponent from './main';
 import NavigationComponent from './navigation';
 import Cursor from './other/cursor';
 import ProjectsComponent from './projects';
+import { createSignal } from 'solid-js';
 
 let version = pkg.version;
 
@@ -31,17 +32,8 @@ export default function () {
   const [previousTime, setPreviousTime] = useState<number>(
     new Date().getTime()
   );
-  const [isMaxHeight, setIsMaxHeight] = useState<boolean>(false);
-  const [isMediumScreen, setIsMediumScreen] = useState<boolean>(false);
-  const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (isNavOpen) {
-      document.body.classList.add('navigation-content-open');
-    } else {
-      document.body.classList.remove('navigation-content-open');
-    }
-  }, [isNavOpen]);
+  const [isMaxHeight, setIsMaxHeight] = createSignal<boolean>(false);
+  const [isMediumScreen, setIsMediumScreen] = createSignal<boolean>(false);
 
   const mostVisibleSection = () => {
     return getSections().find((section: any) => {
@@ -73,7 +65,7 @@ export default function () {
   const isSectionHidden = (id: string): boolean => {
     calculateScreens();
 
-    const hidden = isMaxHeight
+    const hidden = isMaxHeight()
       ? currentSection() !== id
       : getSection(id) instanceof HTMLElement &&
         !elementInView(getSection(id), { threshold: 0.5 });
@@ -89,7 +81,7 @@ export default function () {
    * @return {void}
    */
   const goToSection = (...args) => {
-    if (isMediumScreen) return;
+    if (isMediumScreen()) return;
 
     return GoToSection((section) => {
       setGlobalSection(section);
@@ -191,7 +183,7 @@ export default function () {
    * @return {void}
    */
   const handleTouchstart = (event) => {
-    if (!Array.isArray(event.touches) || isMediumScreen) return;
+    if (!Array.isArray(event.touches) || isMediumScreen()) return;
     setTouchY(event.touches[0].clientY);
   };
 
@@ -203,7 +195,7 @@ export default function () {
    */
   const handleTouchmove = (event) => {
     if (
-      isMediumScreen ||
+      isMediumScreen() ||
       !Array.isArray(event.changedTouches) ||
       scrollingLudicrouslyFast()
     )
@@ -222,7 +214,7 @@ export default function () {
    * @return {void}
    */
   const handleMouseWheel = (event) => {
-    if (isMediumScreen || scrollingLudicrouslyFast()) return;
+    if (isMediumScreen() || scrollingLudicrouslyFast()) return;
 
     switch (Math.sign(event.deltaY)) {
       case 1:
@@ -247,7 +239,7 @@ export default function () {
    * @return {void}
    */
   const maybeScrollJack = (event) => {
-    if (isMediumScreen || !event) return;
+    if (isMediumScreen() || !event) return;
 
     const SPACEBAR = [' ', 'Spacebar'];
     const isCommandKey = () => isMacintosh() && event.metaKey;
@@ -318,7 +310,7 @@ export default function () {
 
     const { documentElement } = document;
 
-    isMediumScreen || wait(1, maybeRestoreSection);
+    isMediumScreen() || wait(1, maybeRestoreSection);
 
     window.addEventListener('resize', handleResize);
     document.addEventListener('keydown', maybeScrollJack);
@@ -346,14 +338,19 @@ export default function () {
       <NavigationComponent
         current_section={globalSection}
         scrollToTop={() => {
-          (
+          if(window.innerWidth <= 768) {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+          } else 
+          {(
             document.querySelector(
               `[aria-label="Visit ${SECTIONS[0]}"]`
             ) as HTMLElement
-          )?.click();
+          )?.click();}
         }}
-        toggleNav={() => setIsNavOpen(!isNavOpen)}
-        isNavOpen={isNavOpen}
+        toggleNav={() => {
+          const navOpen = document.documentElement.dataset.navOpen === 'true';
+          document.documentElement.dataset.navOpen = String(!navOpen);
+        }}
       />
       <main id="peterhanania_content" tabIndex={-1}>
         <AboutComponent

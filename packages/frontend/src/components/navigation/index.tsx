@@ -19,11 +19,9 @@ export default function ({
   current_section,
   scrollToTop,
   toggleNav,
-  isNavOpen
 }: {
   current_section: string;
   scrollToTop: () => void;
-  isNavOpen: boolean;
   toggleNav: () => void;
 }) {
   useEffect(() => {
@@ -68,7 +66,7 @@ export default function ({
         });
       });
     };
-  }, [isNavOpen]);
+  }, []);
 
   return (
     <>
@@ -82,11 +80,19 @@ export default function ({
                   if (current_section !== link.name) {
                     toggleNav();
 
-                    (
+                    if(window.innerWidth <= 768){
+                      const linkSection = document.querySelector(`[data-section="${link.name}"]`);
+                      if(linkSection){
+                        linkSection.scrollIntoView({behavior: "smooth"});
+                      }
+                  }
+                   else {
+                     (
                       document.querySelector(
                         `[aria-label="Visit ${link.name}"]`
                       ) as HTMLElement
                     )?.click();
+                   }
                   }
                 }}
                 className={
@@ -115,6 +121,11 @@ export default function ({
               >
                 Peter Hanania
               </a>
+            </p>
+             <p className={'subheading'}>
+              © Peter {
+                new Date().getFullYear()
+              }. All rights reserved.
             </p>
           </footer>
         </div>

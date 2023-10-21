@@ -183,6 +183,13 @@
     U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+:root {
+  --device-mobile: 640px;
+  --device-medium: 768px;
+  --device-large: 1024px;
+  --device-extra-large: 1200px;
+}
+
 html {
   --color-primary: #3853a4;
   --color-secondary: #0f1b1f;
@@ -196,10 +203,6 @@ html {
   --cursor: rgba(255, 255, 255, 0.6);
   --cursor2: rgba(255, 255, 255, 0.2);
   --text-font: 'Plus Jakarta Sans', sans-serif;
-  --device-mobile: "640px";
-  --device-medium: "768px";
-  --device-large: "1024px";
-  --device-extra-large: "1200px"
 }
 
 *,

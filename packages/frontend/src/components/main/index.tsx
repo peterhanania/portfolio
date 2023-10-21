@@ -47,6 +47,24 @@ export default function ({ aria, name }: { aria: boolean; name: string }) {
               name={'Hire Me'}
               label={'Hire Me'}
               intent="primary"
+              onClick={
+                ()=>{
+                  if(window.innerWidth <= 768){
+                   
+                    const comissions = document.querySelector('[data-section="Comissions"]');
+                    if(comissions){
+                      comissions.scrollIntoView({behavior: "smooth"});
+                    }
+
+                  }
+                  else {
+                     (document.querySelector(
+                   `[aria-label="Visit Comissions"]`
+                   ) as HTMLElement
+                   )?.click();
+                  }
+                }
+              }
             />
           </div>
         </div>

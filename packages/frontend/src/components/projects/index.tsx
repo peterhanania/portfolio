@@ -6853,7 +6853,7 @@ export default function ({ aria, name }: { aria: boolean; name: string }) {
         />
       </div>
 
-      <div className={'projects_more'}>
+      <div className={'projects_more flex-center'}>
         <p className={'subheading'}>Liking what you see?</p>
         <AccessibleButton
           name={'Check out my GitHub'}
