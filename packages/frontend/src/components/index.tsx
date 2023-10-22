@@ -70,6 +70,10 @@ export default function () {
 
     return GoToSection((section) => {
       setGlobalSection(section);
+
+      if (section === SECTIONS[0]) window.history.pushState(null, '', window.location.pathname);
+      else window.history.pushState(null, '', `#${section}`);
+
       //@ts-expect-error - :)
     }, ...args);
   };
@@ -282,6 +286,13 @@ export default function () {
     });
     documentElement.addEventListener('wheel', handleMouseWheel, false);
     documentElement.addEventListener('mousewheel', handleMouseWheel, false);
+
+    const initialSection = window.location.hash.slice(1);
+    if (initialSection) {
+      setTimeout(() => {
+        goToSection({ node: getSection(initialSection), smooth: true });
+      }, 400);
+    }
 
     return () => {
       const { documentElement: docElem } = document;
