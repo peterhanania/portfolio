@@ -934,6 +934,27 @@ import 'react-tippy/dist/tippy.css';
     font-weight: 500;
   }
 
+  .nav footer div {
+    line-height: 1;
+    backdrop-filter: blur(8px);
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav footer div button {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    margin: 0 2px;
+    color: #fff;
+  }
+
+  .nav footer div button:hover {
+    opacity: 0.8;
+  }
+
   html[data-nav-open='true'] .nav footer {
     opacity: 1;
     animation: fadeInOp 3s ease-in-out;

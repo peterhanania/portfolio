@@ -1,5 +1,5 @@
 import pkg from '../../../../package.json';
-import { CURRENT_SECTION, NAVIGATION_ID, SECTIONS } from '../../constants';
+import { CURRENT_SECTION, NAVIGATION_ID, SECTIONS, themes } from '../../constants';
 import elementInView, { goToSection as GoToSection, debounce, getEventPath, getSections, isMacintosh, wait } from '../../helpers';
 import { useSectionStore } from '../states';
 import IntroductionComponent from './about';
@@ -21,6 +21,7 @@ export default function () {
   const [previousTime, setPreviousTime] = useState<number>(new Date().getTime());
   const [isMaxHeight, setIsMaxHeight] = createSignal<boolean>(false);
   const [isMediumScreen, setIsMediumScreen] = createSignal<boolean>(false);
+  const [curTheme, setCurTheme] = useState<string>(themes[0].name);
 
   const mostVisibleSection = () =>
     getSections().find((section) => {
@@ -256,6 +257,12 @@ export default function () {
   };
 
   useEffect(() => {
+    const theme = localStorage.getItem('theme');
+    if (themes.find((t) => t.name === theme)) {
+      setCurTheme(theme);
+      document.documentElement.dataset.theme = theme;
+    }
+
     console.log(
       `
 %c  %c
@@ -320,6 +327,12 @@ export default function () {
         toggleNav={() => {
           const navOpen = document.documentElement.dataset.navOpen === 'true';
           document.documentElement.dataset.navOpen = String(!navOpen);
+        }}
+        current_theme={curTheme}
+        set_theme={(theme) => {
+          document.documentElement.dataset.theme = theme;
+          localStorage.setItem('theme', theme);
+          setCurTheme(theme);
         }}
       />
       <main id="peterhanania_content" tabIndex={-1}>

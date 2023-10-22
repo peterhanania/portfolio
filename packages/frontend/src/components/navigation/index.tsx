@@ -1,5 +1,7 @@
 import pkg from '../../../../../package.json';
+import { themes } from '../../../constants';
 import { useEffect } from 'preact/hooks';
+import { Tooltip } from 'react-tippy';
 
 const version = pkg.version;
 const links = [
@@ -14,7 +16,19 @@ const links = [
   }
 ];
 
-export default function ({ current_section, scrollToTop, toggleNav }: { current_section: string; scrollToTop: () => void; toggleNav: () => void }) {
+export default function ({
+  current_section,
+  scrollToTop,
+  toggleNav,
+  current_theme,
+  set_theme
+}: {
+  current_section: string;
+  scrollToTop: () => void;
+  toggleNav: () => void;
+  current_theme: string;
+  set_theme: (_theme: string) => void;
+}) {
   useEffect(() => {
     const menu = document.querySelector('.mi');
     const menuItems = document.querySelectorAll('.nav-li');
@@ -103,6 +117,29 @@ export default function ({ current_section, scrollToTop, toggleNav }: { current_
               </a>
             </p>
             <p className={'subheading'}>© Peter {new Date().getFullYear()}. All rights reserved.</p>
+            <div>
+              {themes.map((theme) => (
+                <Tooltip position="bottom" arrow={true} animation="scale" html={theme.name}>
+                  <button
+                    role="button"
+                    tabIndex={0}
+                    aria-label={'Set theme ' + theme.name}
+                    style={{
+                      backgroundColor: theme.primary
+                    }}
+                    onClick={
+                      current_theme !== theme.name
+                        ? () => {
+                            set_theme(theme.name);
+                          }
+                        : undefined
+                    }
+                  >
+                    {current_theme === theme.name ? '✓' : ' '}
+                  </button>
+                </Tooltip>
+              ))}
+            </div>
           </footer>
         </div>
       </div>

@@ -12,3 +12,10 @@ export const SECTION_MAP = {
   Comissions: 'Comissions'
 };
 export const SECTIONS = Object.keys(SECTION_MAP);
+export const themes = [
+  { name: 'blue', primary: '#3853a4' },
+  { name: 'purple', primary: '#733d9e' },
+  { name: 'green', primary: '#3cb371' },
+  { name: 'orange', primary: '#ff7f50' },
+  { name: 'black', primary: '#000000' }
+];
