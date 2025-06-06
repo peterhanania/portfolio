@@ -1,15 +1,15 @@
 import AccessibleButton from '../../accessibility/button';
 
 const services = [
-  'Web Hosting',
-  'Domain Management',
-  'Coding Consultation',
-  'VPS Setup',
-  'Frontend Development',
-  'Backend Development',
-  'Mobile App Development',
-  'Database Management',
-  'SEO Optimization'
+  'Premium Web Hosting & Infrastructure',
+  'Strategic Domain Management',
+  'Expert Coding Consultation',
+  'Custom VPS Configuration & Deployment',
+  'Modern Frontend Development',
+  'Robust Backend Development',
+  'Cross-Platform Mobile App Development',
+  'Advanced Database Architecture',
+  'SEO & Performance Optimization'
 ];
 
 export default function ({ aria, name }: { aria: boolean; name: string }) {

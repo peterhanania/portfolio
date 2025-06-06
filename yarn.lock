@@ -3062,6 +3062,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/canvas-confetti@npm:^1.9.0":
+  version: 1.9.0
+  resolution: "@types/canvas-confetti@npm:1.9.0"
+  checksum: 56227a362cead21ab76b0870e07e0cc2d26c800f5bc0fc109e4a3eca1a4d4dd317e1292163246d389827b7f30ce9e6eca3915681f3c80ed1e46491018f48a266
+  languageName: node
+  linkType: hard
+
 "@types/css-tree@npm:*":
   version: 2.3.2
   resolution: "@types/css-tree@npm:2.3.2"
@@ -4208,6 +4215,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"baffle@npm:^0.3.6":
+  version: 0.3.6
+  resolution: "baffle@npm:0.3.6"
+  checksum: 7015beb12b600e17fc2171150bbc9f91fe7e6752c1bfea80b660b8ae41db427b3688c15ea73a7c70302b63887e05606706a70ba0d190b5b1dee559b8803f3922
+  languageName: node
+  linkType: hard
+
 "bail@npm:^2.0.0":
   version: 2.0.2
   resolution: "bail@npm:2.0.2"
@@ -4466,6 +4480,13 @@ __metadata:
   version: 1.0.30001547
   resolution: "caniuse-lite@npm:1.0.30001547"
   checksum: ec0fc2b46721887f6f4aca1f3902f03d9a1a07416d16a86b7cd4bfba60e7b6b03ab3969659d3ea0158cc2f298972c80215c06c9457eb15c649d7780e8f5e91a7
+  languageName: node
+  linkType: hard
+
+"canvas-confetti@npm:^1.9.3":
+  version: 1.9.3
+  resolution: "canvas-confetti@npm:1.9.3"
+  checksum: db044a9c9ca0e58eafd115f7dfc2f9ecc377be34d8a5dd75901dae0dafd4fb0b75fbbf8edd48bbefad2468653c5838348f0e768b79727a924259a9ada343ea30
   languageName: node
   linkType: hard
 
@@ -6782,6 +6803,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"framer-motion@npm:^12.16.0":
+  version: 12.16.0
+  resolution: "framer-motion@npm:12.16.0"
+  dependencies:
+    motion-dom: ^12.16.0
+    motion-utils: ^12.12.1
+    tslib: ^2.4.0
+  peerDependencies:
+    "@emotion/is-prop-valid": "*"
+    react: ^18.0.0 || ^19.0.0
+    react-dom: ^18.0.0 || ^19.0.0
+  peerDependenciesMeta:
+    "@emotion/is-prop-valid":
+      optional: true
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 55f3ee7a93c4bb58d37d1f3804fe36f074c6c880f0ab3c4fa4e4e626982f040a44dbb6bf082b1388f54718999f3e72eadcbfb4129f2a8c4d99ee22133aa06c87
+  languageName: node
+  linkType: hard
+
 "fs-constants@npm:^1.0.0":
   version: 1.0.0
   resolution: "fs-constants@npm:1.0.0"
@@ -8754,6 +8797,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lottie-web@npm:^5.12.2, lottie-web@npm:^5.13.0":
+  version: 5.13.0
+  resolution: "lottie-web@npm:5.13.0"
+  checksum: f634eddbfc49a243af598c8c3b5b2bc347c6980cb85ef3e17a394aa52e2d4d1d04ef565d9cf1581727eec598717932abf5e0e0aba111b4d64f2a9dadaeaa98e2
+  languageName: node
+  linkType: hard
+
 "lower-case@npm:^2.0.2":
   version: 2.0.2
   resolution: "lower-case@npm:2.0.2"
@@ -9637,6 +9687,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"motion-dom@npm:^12.16.0":
+  version: 12.16.0
+  resolution: "motion-dom@npm:12.16.0"
+  dependencies:
+    motion-utils: ^12.12.1
+  checksum: bc52a27acff4f6613c0a0f9eaedb6a16cb43b3d4d015df6d3451ae40eea38bd753f9c9334a51f7d95ae52ff877b0af85e31b2ce98310969e6c828fd748c85568
+  languageName: node
+  linkType: hard
+
+"motion-utils@npm:^12.12.1":
+  version: 12.12.1
+  resolution: "motion-utils@npm:12.12.1"
+  checksum: 73f745b2f619a6f971966cbde27b8d7a87523cdf38aa361519ffa7bd7582b8b7d05f95869181bc1e0c2a6c2c9a48dd45fd33f744383ff82d0a8e9b3b3cfb9702
+  languageName: node
+  linkType: hard
+
 "mri@npm:^1.1.0":
   version: 1.2.0
   resolution: "mri@npm:1.2.0"
@@ -10309,6 +10375,7 @@ __metadata:
     "@swc/register": ^0.1.10
     "@testing-library/jest-dom": ^5.17.0
     "@testing-library/react": ^14.0.0
+    "@types/canvas-confetti": ^1.9.0
     "@types/eslint": ^8.44.1
     "@types/fs-extra": ^11.0.1
     "@types/inquirer": ^9.0.3
@@ -10321,6 +10388,8 @@ __metadata:
     astro-compress: 2.0.1
     astro-icon: 0.8.1
     astro-tooltips: ^0.6.2
+    baffle: ^0.3.6
+    canvas-confetti: ^1.9.3
     chalk: ^5.3.0
     clsx: 1.2.1
     commitizen: ^4.3.0
@@ -10335,6 +10404,7 @@ __metadata:
     eslint-plugin-simple-import-sort: ^10.0.0
     eslint-plugin-unused-imports: ^3.0.0
     execa: ^7.2.0
+    framer-motion: ^12.16.0
     fs-extra: ^11.1.1
     globby: ^13.2.2
     husky: ^8.0.3
@@ -10343,9 +10413,11 @@ __metadata:
     jsdom: ^21.1.2
     lint-staged: ^13.3.0
     lodash: ^4.17.21
+    lottie-web: ^5.13.0
     minimist: ^1.2.8
     preact: 10.16.0
     prettier: ^2.8.8
+    react-lottie-player: ^2.1.0
     react-schemaorg: 2.0.0
     react-tippy: ^1.4.0
     react-use-lanyard: 0.3.0
@@ -10713,6 +10785,19 @@ __metadata:
   version: 18.2.0
   resolution: "react-is@npm:18.2.0"
   checksum: e72d0ba81b5922759e4aff17e0252bd29988f9642ed817f56b25a3e217e13eea8a7f2322af99a06edb779da12d5d636e9fda473d620df9a3da0df2a74141d53e
+  languageName: node
+  linkType: hard
+
+"react-lottie-player@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "react-lottie-player@npm:2.1.0"
+  dependencies:
+    fast-deep-equal: ^3.1.3
+    lottie-web: ^5.12.2
+    rfdc: ^1.3.0
+  peerDependencies:
+    react: ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 11f1008199fe192952026b88dd1504e36ac11a518ff5dca505bb350c3048eb1e1fe46e5a600d15d5a891b2e4e83cffc7f603211c2eca40041cfa15e35d6dc633
   languageName: node
   linkType: hard
 
@@ -12380,6 +12465,13 @@ __metadata:
   version: 2.6.2
   resolution: "tslib@npm:2.6.2"
   checksum: 329ea56123005922f39642318e3d1f0f8265d1e7fcb92c633e0809521da75eeaca28d2cf96d7248229deb40e5c19adf408259f4b9640afd20d13aecc1430f3ad
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.4.0":
+  version: 2.8.1
+  resolution: "tslib@npm:2.8.1"
+  checksum: e4aba30e632b8c8902b47587fd13345e2827fa639e7c3121074d5ee0880723282411a8838f830b55100cbe4517672f84a2472667d355b81e8af165a55dc6203a
   languageName: node
   linkType: hard
 

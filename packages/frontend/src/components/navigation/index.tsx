@@ -116,7 +116,11 @@ export default function ({
                 Peter Hanania
               </a>
             </p>
-            <p className={'subheading'}>© Peter {new Date().getFullYear()}. All rights reserved.</p>
+            <p style={{ fontSize: '1.2rem' }}>
+              Yes! This site has a <span style={{ color: '#4CAF50', fontWeight: 'bold' }}>100%</span> score on Accessibility, SEO, and Performance.
+            </p>
+            <p style={{ fontSize: '.8rem' }}>© Peter Hanania {new Date().getFullYear()}. All rights reserved.</p>
+
             <div>
               {themes.map((theme) => (
                 <Tooltip position="bottom" arrow={true} animation="scale" html={theme.name}>

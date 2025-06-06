@@ -188,7 +188,7 @@ html[data-theme='blue'] {
 html[data-theme='purple'] {
   --color-primary: #8b5cf6;
   --color-secondary: #1a1423;
-  --color-accent: 95, 63, 169; 
+  --color-accent: 95, 63, 169;
   --color-gray: #dfe5ec;
   --color-dark-gray: #9b9b9b;
   --color-light-gray: #dbdbdb;
@@ -244,7 +244,6 @@ html[data-theme='orange'] {
   --gradient-end: #ff9966;
   --color-white: #fff;
 }
-
 
 *,
 ::after,
@@ -628,4 +627,67 @@ h5 {
 .h6,
 h6 {
   font-size: 1rem;
+}
+
+/* Lottie Button Styles */
+.lottie-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.lottie-button-container:hover {
+  transform: scale(1.05);
+}
+
+.lottie-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 15px;
+  background: rgba(var(--color-accent), 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(var(--color-accent), 0.2);
+  transition: all 0.3s ease;
+}
+
+.lottie-wrapper:hover {
+  background: rgba(var(--color-accent), 0.2);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 20px rgba(var(--color-accent), 0.3);
+}
+
+.button-text {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-gray);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.lottie-wrapper:hover .button-text {
+  color: var(--color-primary);
+}
+
+@media screen and (max-width: 768px) {
+  .lottie-button-container {
+    margin: 1.5rem 0;
+  }
+
+  .lottie-wrapper {
+    padding: 0.75rem;
+  }
+
+  .button-text {
+    font-size: 0.875rem;
+  }
 }

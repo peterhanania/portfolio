@@ -1,3 +1,4 @@
+import confetti from 'canvas-confetti';
 import { useEffect, useState } from 'preact/hooks';
 
 export default function ({ aria, name, current_section }) {
@@ -27,6 +28,37 @@ export default function ({ aria, name, current_section }) {
       headlineSpans.forEach((span, index) => {
         setTimeout(() => {
           (span as HTMLElement).style.opacity = '1';
+
+          // Trigger confetti when the "websites" span appears (last span)
+          if (index === headlineSpans.length - 1) {
+            setTimeout(() => {
+              // Launch confetti celebration!
+              confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8']
+              });
+
+              // Add a second burst for extra celebration
+              setTimeout(() => {
+                confetti({
+                  particleCount: 50,
+                  angle: 60,
+                  spread: 55,
+                  origin: { x: 0, y: 0.6 },
+                  colors: ['#FF6B6B', '#4ECDC4', '#45B7D1']
+                });
+                confetti({
+                  particleCount: 50,
+                  angle: 120,
+                  spread: 55,
+                  origin: { x: 1, y: 0.6 },
+                  colors: ['#FFA07A', '#98D8C8', '#FF6B6B']
+                });
+              }, 500);
+            }, 300); // Small delay after the last word appears
+          }
         }, index * 200);
       });
     }
@@ -39,14 +71,28 @@ export default function ({ aria, name, current_section }) {
       const timer = setInterval(() => {
         if (start >= endValue) {
           clearInterval(timer);
+
+          // Add small confetti burst when each counter finishes
+          if (elementId === 'users') {
+            // When the last counter finishes
+            setTimeout(() => {
+              confetti({
+                particleCount: 30,
+                spread: 45,
+                origin: { y: 0.8 },
+                colors: ['#45B7D1', '#98D8C8']
+              });
+            }, 200);
+          }
         }
         element.innerHTML = String(start);
         start++;
       }, intervalTime);
     }
 
-    countUp('experience', 5, 500);
-    countUp('projects', 25, 500);
+    countUp('experience', 7, 500);
+    countUp('projects', 40, 500);
+    countUp('users', 1000000, 500);
 
     return () => {
       window.removeEventListener('scroll', checkVisibility);
@@ -88,15 +134,19 @@ export default function ({ aria, name, current_section }) {
       <div className="statistics">
         <div className="group">
           <span className="number" id="experience">
-            5
+            7
           </span>
           <span className="text">YEARS EXPERIENCE</span>
         </div>
         <div className="group">
           <span className="number" id="projects">
-            25+
+            40+
           </span>
           <span className="text">PROJECTS COMPLETED</span>
+        </div>
+        <div className="group">
+          <span className="number">1M+</span>
+          <span className="text">MONTHLY ACTIVE USERS</span>
         </div>
       </div>
     </section>

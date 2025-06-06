@@ -29,31 +29,31 @@ export default function ({ aria, name }: { aria: boolean; name: string }) {
         </div>
         <div>
           <p className="light-text">Mastering</p>
-          <p className="subtitle">Next.js</p>
+          <p className="subtitle">AWS</p>
         </div>
         <div>
           <p className="light-text">Expert in</p>
-          <p className="subtitle">NestJS</p>
+          <p className="subtitle">Typescript</p>
         </div>
         <div>
           <p className="light-text">Exploring</p>
-          <p className="subtitle">Java</p>
+          <p className="subtitle">Hugging Face</p>
         </div>
         <div>
           <p className="light-text">Learning</p>
-          <p className="subtitle">Go</p>
+          <p className="subtitle">SST</p>
         </div>
         <div>
           <p className="light-text">Passionate about</p>
-          <p className="subtitle">Redis</p>
+          <p className="subtitle">React Native</p>
         </div>
         <div>
           <p className="light-text">Devoted to</p>
           <p className="subtitle">PostgreSQL</p>
         </div>
         <div>
-          <p className="light-text">Enthusiast of</p>
-          <p className="subtitle">Typescript</p>
+          <p className="light-text">Experienced with</p>
+          <p className="subtitle">Shopify</p>
         </div>
 
         <div>
