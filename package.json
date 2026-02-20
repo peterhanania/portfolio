@@ -121,7 +121,6 @@
     "astro-template",
     "preact",
     "typescript",
-    "tailwindcss",
     "framer-motion",
     "pwa",
     "progressive-web-app",

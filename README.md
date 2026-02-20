@@ -55,7 +55,6 @@ Most portfolio templates are either bloated React SPAs or static HTML with zero 
 | UI | [Preact](https://preactjs.com) + `@preact/compat` |
 | State | [Zustand](https://github.com/pmndrs/zustand) + `@preact/signals` |
 | Animations | [Framer Motion](https://www.framer.com/motion/), [Lottie](https://airbnb.io/lottie/), [Baffle.js](https://camwiegert.github.io/baffle/), [canvas-confetti](https://github.com/catdad/canvas-confetti) |
-| Styling | TailwindCSS |
 | Monorepo | [Turborepo](https://turbo.build) + Yarn Workspaces |
 | Deployment | Netlify |
 | PWA | Vite PWA + Workbox |
