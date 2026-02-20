@@ -1,6 +1,6 @@
-# Peter Hanania — Portfolio
+#  ⚡️ Ultimate Software Developer Portfolio
 
-> A blazing-fast, fully accessible personal portfolio built with **Astro + Preact**. Scores 100/100 on Lighthouse across Performance, Accessibility, SEO, and Best Practices.
+A blazing-fast, fully accessible personal portfolio built with **Astro + Preact**. Scores 100/100 on Lighthouse across Performance, Accessibility, SEO, and Best Practices.
 
 **Live:** [peterhanania.com](https://peterhanania.com)
 
@@ -35,15 +35,15 @@ Most portfolio templates are either bloated React SPAs or static HTML with zero 
 
 ## Features
 
-- **Full-page scroll hijacking** — smooth per-section scrolling on desktop, native swipe on mobile, complete keyboard nav (arrows, spacebar, Page Up/Down, Home/End)
-- **5 color themes** — Blue, Purple, Green, Orange, Black — persisted to `localStorage`
-- **Custom cursor** — three-layer cursor with hover states, driven by `requestAnimationFrame` at 60fps
-- **Text scramble animations** — Baffle.js with a `█▓▒░<>$%@` character set
-- **Section gradients** — unique radial gradient backgrounds per section
-- **Live Discord presence** — real-time status via [Lanyard](https://github.com/Phineas/lanyard)
-- **PWA** — installable, service worker + Workbox caching strategy
-- **100/100 Lighthouse** — Performance, Accessibility, SEO, Best Practices
-- **Accessible** — ARIA labels, semantic HTML, `prefers-reduced-motion`, full keyboard navigation, proper focus management
+- ✅ **Full-page scroll hijacking** — smooth per-section scrolling on desktop, native swipe on mobile, complete keyboard nav (arrows, spacebar, Page Up/Down, Home/End)
+- ✅ **5 color themes** — Blue, Purple, Green, Orange, Black — persisted to `localStorage`
+- ✅ **Custom cursor** — three-layer cursor with hover states, driven by `requestAnimationFrame` at 60fps
+- ✅ **Text scramble animations** — Baffle.js with a `█▓▒░<>$%@` character set
+- ✅ **Section gradients** — unique radial gradient backgrounds per section
+- ✅ **Live Discord presence** — real-time status via [Lanyard](https://github.com/Phineas/lanyard)
+- ✅ **PWA** — installable, service worker + Workbox caching strategy
+- ✅ **100/100 Lighthouse** — Performance, Accessibility, SEO, Best Practices
+- ✅ **Accessible** — ARIA labels, semantic HTML, `prefers-reduced-motion`, full keyboard navigation, proper focus management
 
 ---
 
