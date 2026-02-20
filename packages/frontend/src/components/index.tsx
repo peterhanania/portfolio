@@ -22,6 +22,22 @@ export default function () {
   const [isMaxHeight, setIsMaxHeight] = createSignal<boolean>(false);
   const [isMediumScreen, setIsMediumScreen] = createSignal<boolean>(false);
   const [curTheme, setCurTheme] = useState<string>(themes[0].name);
+  const [starBannerDismissed, setStarBannerDismissed] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem('star_banner_dismissed') === 'true';
+    } catch {
+      return false;
+    }
+  });
+
+  const dismissStarBanner = () => {
+    setStarBannerDismissed(true);
+    try {
+      localStorage.setItem('star_banner_dismissed', 'true');
+    } catch {
+      // ignore
+    }
+  };
 
   const mostVisibleSection = () =>
     getSections().find((section) => {
@@ -442,6 +458,37 @@ export default function () {
         ))}
       </div>
       <Cursor />
+      {!starBannerDismissed && (
+        <div className="star-banner" role="complementary" aria-label="Star this repository">
+          <a
+            href="https://github.com/peterhanania/portfolio"
+            target="_blank"
+            rel="noreferrer"
+            className="star-banner__link"
+            aria-label="Star this repository on GitHub — it means a lot"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="star-banner__icon">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+            <span>Star this repo — it means a lot!</span>
+          </a>
+          <button className="star-banner__close" onClick={dismissStarBanner} aria-label="Dismiss star request">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <line x1={18} y1={6} x2={6} y2={18} />
+              <line x1={6} y1={6} x2={18} y2={18} />
+            </svg>
+          </button>
+        </div>
+      )}
     </>
   );
 }

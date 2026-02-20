@@ -1,14 +1,14 @@
 import AccessibleButton from '../../accessibility/button';
 
 const services = [
-  'Premium Web Hosting & Infrastructure',
-  'Strategic Domain Management',
-  'Expert Coding Consultation',
-  'Custom VPS Configuration & Deployment',
-  'Modern Frontend Development',
-  'Robust Backend Development',
-  'Cross-Platform Mobile App Development',
-  'Advanced Database Architecture',
+  'Web Hosting & Infrastructure',
+  'Domain Management',
+  'Coding Consultation',
+  'VPS Configuration & Deployment',
+  'Frontend Development',
+  'Backend Development',
+  'Mobile App Development',
+  'Database Architecture',
   'SEO & Performance Optimization'
 ];
 
