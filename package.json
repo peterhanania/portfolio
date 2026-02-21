@@ -44,7 +44,6 @@
     "react-lottie-player": "^2.1.0",
     "react-schemaorg": "2.0.0",
     "react-tippy": "^1.4.0",
-    "react-use-lanyard": "^0.3.6",
     "tippy.js": "^6.3.7",
     "typescript": "^5.7.3",
     "zustand": "^5.0.11"
@@ -124,8 +123,6 @@
     "animations",
     "dark-mode",
     "multi-theme",
-    "discord-presence",
-    "lanyard",
     "lighthouse-100",
     "web-performance",
     "scroll-snap",

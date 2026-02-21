@@ -40,7 +40,6 @@ Most portfolio templates are either bloated React SPAs or static HTML with zero 
 - ✅ **Custom cursor** — three-layer cursor with hover states, driven by `requestAnimationFrame` at 60fps
 - ✅ **Text scramble animations** — Baffle.js with a `█▓▒░<>$%@` character set
 - ✅ **Section gradients** — unique radial gradient backgrounds per section
-- ✅ **Live Discord presence** — real-time status via [Lanyard](https://github.com/Phineas/lanyard)
 - ✅ **PWA** — installable, service worker + Workbox caching strategy
 - ✅ **100/100 Lighthouse** — Performance, Accessibility, SEO, Best Practices
 - ✅ **Accessible** — ARIA labels, semantic HTML, `prefers-reduced-motion`, full keyboard navigation, proper focus management

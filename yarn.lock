@@ -14232,7 +14232,6 @@ __metadata:
     react-lottie-player: ^2.1.0
     react-schemaorg: 2.0.0
     react-tippy: ^1.4.0
-    react-use-lanyard: ^0.3.6
     schema-dts: ^1.1.5
     svgo: ^3.3.2
     tippy.js: ^6.3.7
@@ -14660,18 +14659,6 @@ __metadata:
   dependencies:
     popper.js: ^1.11.1
   checksum: cbe3863ed896601a8dfd8068fb3220e8ffc95b83f63b13c19d1a46fe04e485043f9d2c52f6fcc85d55ab4616ff30e04e1952be8b30f8c70cd75dca68ee6f85ca
-  languageName: node
-  linkType: hard
-
-"react-use-lanyard@npm:^0.3.6":
-  version: 0.3.6
-  resolution: "react-use-lanyard@npm:0.3.6"
-  dependencies:
-    swr: ^2.3.8
-    tslib: ^2.8.1
-  peerDependencies:
-    react: ">=16"
-  checksum: 5dbe4a8ea33f7296cddc301e7613fa4a365a2534332df88695310fbb0fc9c4fa78ed0dc98c6b2261d8e5a4271b0a7cfbd82181201427e835bb6033d8fd7fa992
   languageName: node
   linkType: hard
 
@@ -16442,18 +16429,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swr@npm:^2.3.8":
-  version: 2.4.0
-  resolution: "swr@npm:2.4.0"
-  dependencies:
-    dequal: ^2.0.3
-    use-sync-external-store: ^1.6.0
-  peerDependencies:
-    react: ^16.11.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: de7239e787063f6150f4395c02dc6743df7b6749fa570c4bc9c6c72ca6a84da61350ded4c1a98675e9b58a8f112dbe5f1523d1f126aceeb2c9478b327cd62752
-  languageName: node
-  linkType: hard
-
 "symbol-tree@npm:^3.2.4":
   version: 3.2.4
   resolution: "symbol-tree@npm:3.2.4"
@@ -16816,7 +16791,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.4.0, tslib@npm:^2.6.3, tslib@npm:^2.8.1":
+"tslib@npm:^2.4.0, tslib@npm:^2.6.3":
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: e4aba30e632b8c8902b47587fd13345e2827fa639e7c3121074d5ee0880723282411a8838f830b55100cbe4517672f84a2472667d355b81e8af165a55dc6203a
@@ -17522,15 +17497,6 @@ __metadata:
   version: 10.1.0
   resolution: "urlpattern-polyfill@npm:10.1.0"
   checksum: 81c1098493dce8789f31940a96f290754b5ee5d589fd4d0a194567f3ca99bd483c66a476e7df84bb6961e4cb44e0e8c265bcb2452f74018edcbbf8677c2fa811
-  languageName: node
-  linkType: hard
-
-"use-sync-external-store@npm:^1.6.0":
-  version: 1.6.0
-  resolution: "use-sync-external-store@npm:1.6.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 61a62e910713adfaf91bdb72ff2cd30e5ba83687accaf3b6e75a903b45bf635f5722e3694af30d83a03e92cb533c0a5c699298d2fef639a03ffc86b469f4eee2
   languageName: node
   linkType: hard
 
