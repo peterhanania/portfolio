@@ -1,23 +1,20 @@
 #  ⚡️ Ultimate Software Developer Portfolio
 
-A blazing-fast, fully accessible personal portfolio built with **Astro + Preact**. Scores 100/100 on Lighthouse across Performance, Accessibility, SEO, and Best Practices.
+### A _blazing-fast_, fully accessible personal portfolio built with **Astro + Preact**.
 
-**Live:** [peterhanania.com](https://peterhanania.com)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Stars](https://img.shields.io/github/stars/peterhanania/portfolio?style=social)](https://github.com/peterhanania/portfolio/stargazers)
-[![Lighthouse](https://img.shields.io/badge/Lighthouse-100%2F100-brightgreen)](https://peterhanania.com)
-[![PWA](https://img.shields.io/badge/PWA-enabled-blue)](https://peterhanania.com)
-[![Built with Astro](https://img.shields.io/badge/Built%20with-Astro-FF5D01?logo=astro&logoColor=white)](https://astro.build)
-[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE) [![Stars](https://img.shields.io/github/stars/peterhanania/portfolio?style=social)](https://github.com/peterhanania/portfolio/stargazers) [![Lighthouse](https://img.shields.io/badge/Lighthouse-100%2F100-brightgreen)](https://peterhanania.com) [![PWA](https://img.shields.io/badge/PWA-enabled-blue)](https://peterhanania.com) [![Built with Astro](https://img.shields.io/badge/Built%20with-Astro-FF5D01?logo=astro&logoColor=white)](https://astro.build) [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/peterhanania/portfolio)
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/peterhanania/portfolio)
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/peterhanania/portfolio)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/peterhanania/portfolio) [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/peterhanania/portfolio) [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/peterhanania/portfolio)
 
 ---
 
-## Screenshots
+## Preview
+
+![Lighthouse Score](./public/LIGHTHOUSE_SCORE.png)
+
+> ### Scores 100/100 on Lighthouse across Performance, Accessibility, SEO, and Best Practices.
+
 
 ![Hero Section](./public/PREVIEW_IMAGE_1.png)
 ![About Section](./public/PREVIEW_IMAGE_2.png)
