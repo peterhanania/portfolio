@@ -43,22 +43,26 @@ const Cursor = () => {
     }
 
     // Use event delegation for hover events
-    document.body.addEventListener('mouseover', (e) => {
+    function handleMouseOverDelegated(e: MouseEvent) {
       if ((e.target as HTMLElement).classList.contains('hover')) {
         handleMouseOver();
       }
-    });
+    }
 
-    document.body.addEventListener('mouseout', (e) => {
+    function handleMouseOutDelegated(e: MouseEvent) {
       if ((e.target as HTMLElement).classList.contains('hover')) {
         handleMouseOut();
       }
-    });
+    }
 
+    document.body.addEventListener('mouseover', handleMouseOverDelegated);
+    document.body.addEventListener('mouseout', handleMouseOutDelegated);
     document.body.addEventListener('mousemove', handleMouseMove);
     rafId.current = requestAnimationFrame(updateCursorPosition);
 
     return () => {
+      document.body.removeEventListener('mouseover', handleMouseOverDelegated);
+      document.body.removeEventListener('mouseout', handleMouseOutDelegated);
       document.body.removeEventListener('mousemove', handleMouseMove);
       if (rafId.current) {
         cancelAnimationFrame(rafId.current);

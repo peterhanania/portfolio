@@ -9,18 +9,26 @@ import AboutComponent from './main';
 import NavigationComponent from './navigation';
 import Cursor from './other/cursor';
 import ProjectsComponent from './projects';
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { Tooltip } from 'react-tippy';
-import { createSignal } from 'solid-js';
 
 const version = pkg.version;
 
 export default function () {
-  const [globalSection, setGlobalSection] = useSectionStore((state) => [state.section, state.setSection]);
+  const globalSection = useSectionStore((state) => state.section);
+  const setGlobalSection = useSectionStore((state) => state.setSection);
   const [touchY, setTouchY] = useState<null | number>(null);
   const [previousTime, setPreviousTime] = useState<number>(new Date().getTime());
-  const [isMaxHeight, setIsMaxHeight] = createSignal<boolean>(false);
-  const [isMediumScreen, setIsMediumScreen] = createSignal<boolean>(false);
+  const _isMaxHeight = useRef(false);
+  const _isMediumScreen = useRef(false);
+  const isMaxHeight = () => _isMaxHeight.current;
+  const isMediumScreen = () => _isMediumScreen.current;
+  const setIsMaxHeight = (val: boolean) => {
+    _isMaxHeight.current = val;
+  };
+  const setIsMediumScreen = (val: boolean) => {
+    _isMediumScreen.current = val;
+  };
   const [curTheme, setCurTheme] = useState<string>(themes[0].name);
   const [starBannerDismissed, setStarBannerDismissed] = useState<boolean>(() => {
     try {

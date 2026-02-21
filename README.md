@@ -81,7 +81,7 @@ yarn build
 yarn preview
 ```
 
-The dev server runs at `http://localhost:3000`.
+The dev server runs at `http://localhost:4321`.
 
 ---
 
@@ -110,8 +110,7 @@ Feel free to fork and adapt it. If you do, a GitHub star goes a long way. The ma
 
 1. Content in `src/components/` (hero copy, experience, projects)
 2. `constants/technologies.tsx` for your own stack icons
-3. Your Lanyard user ID in the Discord presence component
-4. Colors/gradients in the CSS custom properties
+3. Colors/gradients in the CSS custom properties
 
 ---
 

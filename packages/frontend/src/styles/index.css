@@ -721,7 +721,7 @@ h6 {
   }
 }
 
-.star-banner__link {
+a.star-banner__link {
   display: flex;
   align-items: center;
   gap: 0.45rem;
@@ -734,13 +734,13 @@ h6 {
   white-space: nowrap;
 }
 
-.star-banner__link:hover,
-.star-banner__link:focus-visible {
+a.star-banner__link:hover,
+a.star-banner__link:focus-visible {
   color: var(--color-primary);
   outline: none;
 }
 
-.star-banner__link:focus-visible {
+a.star-banner__link:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
   border-radius: 4px;
